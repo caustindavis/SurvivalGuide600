@@ -11,7 +11,7 @@ After you complete the R installation, it's time to get RStudio. [Go to the RStu
 When you open RStudio, you'll see an interface like the one shown below. It's possible that the four windows highlighted in the image will be in a different order. Note that you can change the size of the windows by dragging the panes separating them. 
 
 ```{r interface, echo=FALSE, eval=TRUE, out.width = '90%',fig.align = 'center', fig.cap="RStudio Interface"}
-knitr::include_graphics("C:\\Users\\ahart\\Dropbox\\SIS 600 AH\\SurvivalGuide\\rstudiowindow.jpg")
+knitr::include_graphics("rstudiowindow.jpg")
 ```
 
 The source pane is where you'll write individual scripts: the collections of R code chunks that constitute your analysis. The console is where R evaluates the code you choose to execute. Each code chunk in the console begins with the symbol `>`, and the output from each chunk is printed below it. For example, type `2+10/5` into the console and hit enter.
@@ -58,8 +58,8 @@ R's advanced functionality comes from the use of packages---user-defined program
 ### Installing packages
  To install the `tidyverse` (or any package), use the command `install.packages('packageName')` in your script or console. Be sure to include the name of the package in quotes. Note that the `tidyverse` will take several minutes to install:
 
-```{r install}
-  install.packages('tidyverse')
+```{r install, results=F, message=F}
+  install.packages('tidyverse', repos='http://cran.us.r-project.org')
 ```
 
 Just like installing an app on your phone, you only install a package once. After it downloads and unpacks, you never have to do it again.
@@ -80,13 +80,13 @@ Note that you can also call a specific function without loading the entire packa
 Every data project needs a home. Your working directory is the folder on your computer from which R will load data, images, etc and to which it will save your output. It's important to designate your working directory at the beginning of any script using the `setwd('filepath')` command. For example:
 
 ```{r wd}
-  setwd('C:\\Users\\ahart\\Documents\\SIS600')
+  setwd('C:\\Users\\cadavis\\Documents\\GitHub\\SurvivalGuide600')
 ```
 
 This is where you should save the data sets for your project. Note the use of the double backslash, `\\`, when specifying the directory. Note also that this path only works on MY computer! You'll have to specify your own path. Don't know your path? No problem. Navigate to your project folder on your computer. Similar to the left-hand panel below, you may have the option to copy the path from a button. Alternatively, right-click on your data set, and use options like "Properties" or "Copy path as text" to get the path. 
 
 ```{r pathfind, echo=FALSE, eval=TRUE, out.width = '90%',fig.align = 'center', fig.cap="Finding your directory's path"}
-knitr::include_graphics("C:\\Users\\ahart\\Dropbox\\SIS 600 AH\\SurvivalGuide\\settingwd.jpg")
+knitr::include_graphics("settingwd.jpg")
 ```
 
 In either case, you can copy the path and paste into `setwd()` in your R session. Don't forget to mind your quotes and slashes! 

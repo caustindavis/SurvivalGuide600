@@ -42,7 +42,8 @@ For example: the concatenate function `c(item1,item2,...)` combines a series of 
 ## The Pipe Operator
 The pipe operator `%>%` from the `tidyverse` package strings together a series of functions into a single command. It will take the output from the first function and use it as the input for the second, take the output from the second as input for the third, etc. For example, creating a sequence from 0 to 100 with intervals of 2, calculating the sum of these numbers, and calculating (and printing) the square root of this sum, can be done in three ways.
 
-```{r piping,eval=TRUE}
+```{r piping,eval=TRUE,message=F}
+  library(tidyverse)
   a = seq(0,100,2) 
   b = sum(a)
   c = sqrt(b)

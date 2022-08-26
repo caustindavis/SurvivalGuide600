@@ -20,6 +20,7 @@ Note that this works only if the dataset is saved in the working directory. If n
 Often the datasets you work with will not be in `.rdata` format, or it will be more convenient to store them in another format so that you can create or work with them using other software. The simplest option is to work with Comma-Separated Values (.csv) files. To import data from a `.csv` file, use the `read_csv('filename')` function defined within `tidyverse`.
 
 ```{r csvdata}
+  library(tidyverse)
   myCSV <- read_csv('csvData.csv')
 ```
 
