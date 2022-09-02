@@ -21,7 +21,7 @@ Often the datasets you work with will not be in `.rdata` format, or it will be m
 
 ```{r csvdata}
   library(tidyverse)
-  myCSV <- read_csv('csvData.csv')
+  dc_wthr_18 <- read_csv('dc_weather_2018.csv')
 ```
 
 ### Excel (.xls, .xlsx) files
@@ -80,15 +80,15 @@ How do you reference or identify the variables in a data frame (e.g. to calculat
 Always save your work! Early and often! This is true both of both your scripts and your data sets. R will ask if you want to save your "workspace" when you close the session, and you should not. Save your script instead.
 
 ### Saving an R script
-To save you `.r` script file in `RStudio`, go to File - Save (or Save As...). 
+To save you `.r` script file in `RStudio`, go to File - Save (or Save As...). You can also use the keyboard shortcut `Ctrl` + `S`.
 
 ### Saving a data frame
-To save a data frame as a `.rdata` data file, use the `save(object,'filename')` command. To save a data frame as (i.e. write it onto) a `.csv` file, use the `write_csv(object, 'filename')` command and enter the name of the object and the file name. 
+To save a data frame as a `.rdata` data file, use the `save(object,'filename')` command. To save a data frame as (i.e. write it onto) a `.csv` file, use the `write_csv(object, 'filename')` command and enter the name of the object and the file name.
 
 ```{r saving}
-  save(myData, file = 'sampledata.rdata')      # to save as an Rdata file
+  save(film, file = 'film.rdata')         # save object film as an Rdata file
 
-  write_csv(myData, file = 'sampledata.csv')   # to write onto a .csv file
+  write_csv(film, file = 'film.csv')   # save object film as a CSV file
 ```
 
 As always, these actions will write the new file to your working directory. If you have not specified a working directory, or if you want to save elsewhere, specify the complete path name here. 

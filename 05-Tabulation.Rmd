@@ -10,7 +10,12 @@ Note that you will need the `film` data (`biopics.xls`) to replicate the example
 ### Frequency tables
 The `count()` function in `tidyverse` creates a tibble with each value of the variable and the "count" of observations within. 
 
-```{r rawtab, eval=TRUE}
+```{r rawtab, eval=TRUE, message=FALSE}
+library(tidyverse) # load tidyverse package for pipe syntax and summary functions
+library(readxl) # load readxl package to import Excel files
+
+film <- read_excel('biopics.xls') # import Excel file as object film
+
 # Frequency table
   Tab =
     film %>%   # the dataset
