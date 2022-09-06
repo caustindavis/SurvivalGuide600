@@ -70,3 +70,17 @@ graphical-parameters
 exportingsaving-graphs
 fig:interface
 fig:pathfind
+the-console
+the-source-pane
+the-enviroment-pane
+learning-and-experimenting-in-the-console
+writing-code-in-the-source-pane
+help
+writing-r-scripts-in-the-source-pane
+writing-r-scripts-scripts
+scripts
+source_pane
+saving-your-r-script
+setwd
+source
+the-other-panes

@@ -5,7 +5,7 @@ R is a language for statistical computing. It's dynamic. It's powerful. It's fre
 ## Installing the software
 Start by installing R on your computer. [Go to the R website](https://www.r-project.org/) and click on "download R" in the Getting Started section. Find a mirror site of your choice (we use Statlib at Carnegie Mellon, but do whatever you like). From there click on your operating system and follow the instructions for running the Setup Wizard. Windows users: you want the "base" distribution.
 
-After you complete the R installation, it's time to get RStudio. [Go to the RStudio site](https://rstudio.com/) and click "Download RStudio." From there, select the RStudio Desktop, Open Source License. Select the appropriate installer for your platform, and install. 
+After you complete the R installation, it's time to get RStudio. [Go to the download RStudio site](https://www.rstudio.com/products/rstudio/download/). From there, select the RStudio Desktop, Open Source License. Select the appropriate installer for your platform, and install. 
 
 ## The RStudio Interface
 When you open RStudio, you'll see an interface like the one shown below. It's possible that the four windows highlighted in the image will be in a different order. Note that you can change the size of the windows by dragging the panes separating them. 
@@ -14,15 +14,36 @@ When you open RStudio, you'll see an interface like the one shown below. It's po
 knitr::include_graphics("rstudiowindow.jpg")
 ```
 
-The source pane is where you'll write individual scripts: the collections of R code chunks that constitute your analysis. The console is where R evaluates the code you choose to execute. Each code chunk in the console begins with the symbol `>`, and the output from each chunk is printed below it. For example, type `2+10/5` into the console and hit enter.
+### Learning and experimenting in the console
+The console, which defaults to the bottom left of R Studio, is your direct link to the underlying R software that actually executes commands.
+
+To interact with the console, click your mouse inside the console pane. You should see a blinking cursor following the the symbol `>`. You then type a command and press the `Enter` key to execute it. The output from the command will be printed below.
+
+As we will see, R can execute a huge variety of commands, but let's start with a simple example: using R as a calculator. R is overkill for simple arithmetic, but it's perfectly capable. For example, type `2+10/5` into the console and hit enter.
 
 ````{r simple, eval=TRUE, collapse=TRUE}
   2 + 10/5
 ````
+
+The console has two features that make it well suited for learning and experimentation:
+
+- The console prints output, like the result of the calculation above, so you can instantly see the results of your command.
+- It's a convenient way to access R's help and documentation features. Typing `?summary`, for example, will quickly bring up the R help file on the `summary()` function. For more information about help and troubleshooting in R, see Section \@ref(help).
+
+One way to use the console is to treat it as your scratch pad.
+
+### Writing R scripts in the source pane {#source}
+The source pane is where you will build your analyses step by step. It defaults to the top left of R Studio and, although it is another way to issue commands to R, it works differently from the console.
+
+The primary difference is that the source pane stores only commands and comments, not output. It is a specially tailored text editor, one of the conveniences offered by R studio. It allows you to save the precise "recipe" for an analysis in the form of a text file with a `.R` extension, known as an R Script.
+
+Since R Scripts are a central way you will interact with R, we expand on how to create, execute, and save them in Section \@ref(scripts)
+
+### The other panes
 The environment pane displays the objects (dataframes, graphs, lists, etc) available. Finally, the plots/help panel displays your graphs, help files, and more. For example, load a built`-`in data frame and create a simple histogram. Type and execute the code below:
 
 ```{r histex, eval=TRUE, out.width="70%",fig.align = 'center'}
-  IrisData = iris
+  IrisData <- iris
 
   hist(IrisData$Petal.Width)
 ```
@@ -30,26 +51,46 @@ The environment pane displays the objects (dataframes, graphs, lists, etc) avail
 Notice that the data frame `IrisData` is now listed in the environment pane. The histogram is displayed in the plot window.
 
 
-## Code chunks
+## Writing R scripts {#scripts}
 
-### Writing and executing
-Open RStudio, and create a new R Script file (click the icon near the upper left that looks like a piece of paper with a green plus on it). Type the following lines into the script:
+As mentioned in Section \@ref(source), R Scripts are the primary method for building an analysis. They are text files storing the recipe or set of R commands to complete the analysis. There are several ways to create a new R Script:
+
+- Click the the icon near the upper left that looks like a piece of paper with a green plus on it
+- Click on the menu File -> New File -> R Script
+- Use the keyboard shortcut `Ctrl` + `Shift` + `N`
+
+You can also open existing files using File -> Open or `Ctrl` + `O`. To help get your feet wet, create a new R Script and type the following lines:
 
 ```{r trial,eval=TRUE}
-  x = rnorm(n = 1000, mean = 10, sd = 4)
+  x <- rnorm(n = 1000, mean = 10, sd = 4)
   mean(x)
 ```
 
-Execute a command from your script by clicking within the line with your mouse (or click on the line number, or click and drag to select multiple lines at once) and clicking Run (Ctrl + Enter). You can execute lines one at a time or as a group. Try executing the lines above. Compare your output. It's probably very close but not exactly the same! No worries---the first line creates a random normal distribution.
+Execute a command from your script by first clicking within the line with your mouse and then clicking the Run button or using the keyboard shortcut `Ctrl` + `Enter`. To execute multiple lines at once, click and drag your mouse to select the desired lines before clicking the the Run button or using the keyboard shortcut. You can execute the entire script by clicking on the Source button or using the keyboard shortcut `Ctrl` + `Shift` + `S`.
+
+Try executing the lines above. Compare your output. It's probably very close but not exactly the same! No worries---the first line creates a random normal distribution.
 
 ### Commenting with &#35;
-It's important to add comments throughout your script. These can function as section headers, or as notes to your future self/colleagues on what you were attempting to do. R treats anything after the `#` sign as a comment and ignores it when executing commands. For instance:
+The source pane allows you to annotate your code with "comments," helping you to keep your work organized and comprehensible. Comments can function as section headers, or as notes to your future self/colleagues on what you were attempting to do. R treats anything after the `#` sign as a comment and ignores it when executing commands. For instance:
 
 ````{r comment}
 # Practice executing commands    
-  x = rnorm(n = 1000, mean = 10, sd = 4)  # create a new object, x
+  x <- rnorm(n = 1000, mean = 10, sd = 4)  # create a new object, x
   mean(x)                                 # calculate the mean of it
 ````
+
+### Saving your R Script
+R Scripts embody a complete, precise record of every step involved in a particular analysis, which offers two big benefits. First, you can return to an analysis to expand on it or correct errors. Second, you can easily share it with others, who will then be able to understand exactly what you did and reproduce your work.
+
+But you must save your R Script to get these these benefits. Make sure to do so regularly by:
+
+- Clicking the floppy disk icon
+- Clicking on the menu File -> Save (or File -> Save As)
+- Using the keyboard shortcut `Ctrl` + `S`
+
+The first time you save an R Script, you will be prompted to select a destination directory and a file name. You can choose any convenient directory for your R Script. For example, you do not need to save the R Script in the same directory as other files, e.g. source data, used in your analysis.
+
+As we will see in Section \@ref(setwd), there is a R command that allows us to specify which directory stores source data or other relevant files independent of the location of your R Script file.
 
 ## R Packages
 
@@ -76,20 +117,23 @@ You only have to install a package once, but you must load it in each R session 
 
 Note that you can also call a specific function without loading the entire package that defines it. For example, `haven::read_dta()` executes the `read_dta()` function from the `haven` package without loading the package itself.
 
-## Setting a directory
+## Setting a directory {#setwd}
 Every data project needs a home. Your working directory is the folder on your computer from which R will load data, images, etc and to which it will save your output. It's important to designate your working directory at the beginning of any script using the `setwd('filepath')` command. For example:
 
 ```{r wd}
   setwd('C:\\Users\\cadavis\\Documents\\GitHub\\SurvivalGuide600')
 ```
 
-This is where you should save the data sets for your project. Note the use of the double backslash, `\\`, when specifying the directory. Note also that this path only works on MY computer! You'll have to specify your own path. Don't know your path? No problem. Navigate to your project folder on your computer. Similar to the left-hand panel below, you may have the option to copy the path from a button. Alternatively, right-click on your data set, and use options like "Properties" or "Copy path as text" to get the path. 
+This is where you should save the data sets for your project. 
+
+Two types of errors are common when setting a working directory:
+
+- Using the wrong separator for file paths. By default, R uses a forward slash (`/`) to separate directories in file paths. This is consistent with some operating systems, but Windows uses a backslash (`\`) by default. To enter a Windows file path into R, replace all the single backslashes with either forward slashes or, as above, double backslashes, `\\`.
+- Indicating a file path that does not exist [on your computer]. The file path above is specific to my computer! You'll have to specify your own path. Don't know your path? Navigate to your project folder on your computer. Similar to the left-hand panel below, you may have the option to copy the path from a button. Alternatively, right-click on, say, your data set, and use options like "Properties" or "Copy path as text" to get the path.
 
 ```{r pathfind, echo=FALSE, eval=TRUE, out.width = '90%',fig.align = 'center', fig.cap="Finding your directory's path"}
 knitr::include_graphics("settingwd.jpg")
 ```
-
-In either case, you can copy the path and paste into `setwd()` in your R session. Don't forget to mind your quotes and slashes! 
 
 If you're unsure about the current directory, check using the `getwd()` function:
 ```{r getwd, eval = TRUE}
@@ -102,9 +146,9 @@ You can verify that the correct files are there using `list.files()`:
   list.files()
 ```
 
-Note that my list includes the two companion data sets to this guide. If you don't see them after you run `list.files()`, confirm that you downloaded the data to your computer and move them to your project folder.
+Note that my list includes several companion data sets to this guide. If you don't see them after you run `list.files()`, confirm that you downloaded the data to your computer and move them to your project folder.
 
-## Getting help with R
+## Getting help with R {#help}
 Documentation within R is sometimes helpful, sometimes less so. To see the help file for a given command, enter `help(command)`, or (equivalently) `?command`. These will bring up a tutorial with a basic description, usage, arguments, syntax, and other notes about the command. For example, to get help with setting a working directory:
 
 ```{r help}

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2.2 The RStudio Interface | Survival Guide: Conquering R and living through SIS 600</title>
+  <title>2.6 Getting help with R | Survival Guide: Conquering R and living through SIS 600</title>
   <meta name="description" content="A beginner’s guide to mastering R/RStudio and SIS 600." />
   <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.2 The RStudio Interface | Survival Guide: Conquering R and living through SIS 600" />
+  <meta property="og:title" content="2.6 Getting help with R | Survival Guide: Conquering R and living through SIS 600" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="A beginner’s guide to mastering R/RStudio and SIS 600." />
   <meta name="github-repo" content="caustindavis/SurvivalGuide600" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.2 The RStudio Interface | Survival Guide: Conquering R and living through SIS 600" />
+  <meta name="twitter:title" content="2.6 Getting help with R | Survival Guide: Conquering R and living through SIS 600" />
   
   <meta name="twitter:description" content="A beginner’s guide to mastering R/RStudio and SIS 600." />
   
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="installing-the-software.html"/>
-<link rel="next" href="scripts.html"/>
+<link rel="prev" href="setwd.html"/>
+<link rel="next" href="basics-of-r-programming.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -274,52 +274,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="the-rstudio-interface" class="section level2 hasAnchor" number="2.2">
-<h2><span class="header-section-number">2.2</span> The RStudio Interface<a href="the-rstudio-interface.html#the-rstudio-interface" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>When you open RStudio, you’ll see an interface like the one shown below. It’s possible that the four windows highlighted in the image will be in a different order. Note that you can change the size of the windows by dragging the panes separating them.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:interface"></span>
-<img src="rstudiowindow.jpg" alt="RStudio Interface" width="90%" />
-<p class="caption">
-FIGURE 2.1: RStudio Interface
-</p>
+<div id="help" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Getting help with R<a href="help.html#help" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Documentation within R is sometimes helpful, sometimes less so. To see the help file for a given command, enter <code>help(command)</code>, or (equivalently) <code>?command</code>. These will bring up a tutorial with a basic description, usage, arguments, syntax, and other notes about the command. For example, to get help with setting a working directory:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="help.html#cb15-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">help</span>(setwd)</span></code></pre></div>
+<pre><code>## starting httpd help server ... done</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="help.html#cb17-1" aria-hidden="true" tabindex="-1"></a>  ?setwd</span></code></pre></div>
+<p>If that fails, ask the internet by searching Google or <a href="https://rseek.org/" class="uri">https://rseek.org/</a>, a search engine dedicated specifically to results about R.</p>
+
 </div>
-<div id="learning-and-experimenting-in-the-console" class="section level3 hasAnchor" number="2.2.1">
-<h3><span class="header-section-number">2.2.1</span> Learning and experimenting in the console<a href="the-rstudio-interface.html#learning-and-experimenting-in-the-console" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The console, which defaults to the bottom left of R Studio, is your direct link to the underlying R software that actually executes commands.</p>
-<p>To interact with the console, click your mouse inside the console pane. You should see a blinking cursor following the the symbol <code>&gt;</code>. You then type a command and press the <code>Enter</code> key to execute it. The output from the command will be printed below.</p>
-<p>As we will see, R can execute a huge variety of commands, but let’s start with a simple example: using R as a calculator. R is overkill for simple arithmetic, but it’s perfectly capable. For example, type <code>2+10/5</code> into the console and hit enter.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="the-rstudio-interface.html#cb1-1" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2</span> <span class="sc">+</span> <span class="dv">10</span><span class="sc">/</span><span class="dv">5</span></span>
-<span id="cb1-2"><a href="the-rstudio-interface.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 4</span></span></code></pre></div>
-<p>The console has two features that make it well suited for learning and experimentation:</p>
-<ul>
-<li>The console prints output, like the result of the calculation above, so you can instantly see the results of your command.</li>
-<li>It’s a convenient way to access R’s help and documentation features. Typing <code>?summary</code>, for example, will quickly bring up the R help file on the <code>summary()</code> function. For more information about help and troubleshooting in R, see Section <a href="help.html#help">2.6</a>.</li>
-</ul>
-<p>One way to use the console is to treat it as your scratch pad.</p>
-</div>
-<div id="source" class="section level3 hasAnchor" number="2.2.2">
-<h3><span class="header-section-number">2.2.2</span> Writing R scripts in the source pane<a href="the-rstudio-interface.html#source" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The source pane is where you will build your analyses step by step. It defaults to the top left of R Studio and, although it is another way to issue commands to R, it works differently from the console.</p>
-<p>The primary difference is that the source pane stores only commands and comments, not output. It is a specially tailored text editor, one of the conveniences offered by R studio. It allows you to save the precise “recipe” for an analysis in the form of a text file with a <code>.R</code> extension, known as an R Script.</p>
-<p>Since R Scripts are a central way you will interact with R, we expand on how to create, execute, and save them in Section <a href="scripts.html#scripts">2.3</a></p>
-</div>
-<div id="the-other-panes" class="section level3 hasAnchor" number="2.2.3">
-<h3><span class="header-section-number">2.2.3</span> The other panes<a href="the-rstudio-interface.html#the-other-panes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The environment pane displays the objects (dataframes, graphs, lists, etc) available. Finally, the plots/help panel displays your graphs, help files, and more. For example, load a built<code>-</code>in data frame and create a simple histogram. Type and execute the code below:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="the-rstudio-interface.html#cb2-1" aria-hidden="true" tabindex="-1"></a>  IrisData <span class="ot">&lt;-</span> iris</span>
-<span id="cb2-2"><a href="the-rstudio-interface.html#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="the-rstudio-interface.html#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hist</span>(IrisData<span class="sc">$</span>Petal.Width)</span></code></pre></div>
-<p><img src="SurvivR_files/figure-html/histex-1.svg" width="70%" style="display: block; margin: auto;" /></p>
-<p>Notice that the data frame <code>IrisData</code> is now listed in the environment pane. The histogram is displayed in the plot window.</p>
-</div>
-</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="installing-the-software.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="scripts.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="setwd.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="basics-of-r-programming.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

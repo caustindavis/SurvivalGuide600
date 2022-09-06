@@ -25,7 +25,7 @@
 <meta name="author" content="C. Austin Davis" />
 
 
-<meta name="date" content="2022-08-26" />
+<meta name="date" content="2022-09-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -152,11 +152,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2" data-path="getting-started-with-r-and-rstudio.html"><a href="getting-started-with-r-and-rstudio.html"><i class="fa fa-check"></i><b>2</b> Getting Started with R and RStudio</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="installing-the-software.html"><a href="installing-the-software.html"><i class="fa fa-check"></i><b>2.1</b> Installing the software</a></li>
-<li class="chapter" data-level="2.2" data-path="the-rstudio-interface.html"><a href="the-rstudio-interface.html"><i class="fa fa-check"></i><b>2.2</b> The RStudio Interface</a></li>
+<li class="chapter" data-level="2.2" data-path="the-rstudio-interface.html"><a href="the-rstudio-interface.html"><i class="fa fa-check"></i><b>2.2</b> The RStudio Interface</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="the-rstudio-interface.html"><a href="the-rstudio-interface.html#learning-and-experimenting-in-the-console"><i class="fa fa-check"></i><b>2.2.1</b> Learning and experimenting in the console</a></li>
+<li class="chapter" data-level="2.2.2" data-path="the-rstudio-interface.html"><a href="the-rstudio-interface.html#writing-code-in-the-source-pane"><i class="fa fa-check"></i><b>2.2.2</b> Writing code in the source pane</a></li>
+<li class="chapter" data-level="2.2.3" data-path="the-rstudio-interface.html"><a href="the-rstudio-interface.html#commenting-with"><i class="fa fa-check"></i><b>2.2.3</b> Commenting with #</a></li>
+<li class="chapter" data-level="2.2.4" data-path="the-rstudio-interface.html"><a href="the-rstudio-interface.html#the-enviroment-pane"><i class="fa fa-check"></i><b>2.2.4</b> The enviroment pane</a></li>
+</ul></li>
 <li class="chapter" data-level="2.3" data-path="code-chunks.html"><a href="code-chunks.html"><i class="fa fa-check"></i><b>2.3</b> Code chunks</a>
 <ul>
 <li class="chapter" data-level="2.3.1" data-path="code-chunks.html"><a href="code-chunks.html#writing-and-executing"><i class="fa fa-check"></i><b>2.3.1</b> Writing and executing</a></li>
-<li class="chapter" data-level="2.3.2" data-path="code-chunks.html"><a href="code-chunks.html#commenting-with"><i class="fa fa-check"></i><b>2.3.2</b> Commenting with #</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="r-packages.html"><a href="r-packages.html"><i class="fa fa-check"></i><b>2.4</b> R Packages</a>
 <ul>
@@ -164,7 +169,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.4.2" data-path="r-packages.html"><a href="r-packages.html#loading-packages-for-use"><i class="fa fa-check"></i><b>2.4.2</b> Loading packages for use</a></li>
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="setting-a-directory.html"><a href="setting-a-directory.html"><i class="fa fa-check"></i><b>2.5</b> Setting a directory</a></li>
-<li class="chapter" data-level="2.6" data-path="getting-help-with-r.html"><a href="getting-help-with-r.html"><i class="fa fa-check"></i><b>2.6</b> Getting help with R</a></li>
+<li class="chapter" data-level="2.6" data-path="help.html"><a href="help.html"><i class="fa fa-check"></i><b>2.6</b> Getting help with R</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="basics-of-r-programming.html"><a href="basics-of-r-programming.html"><i class="fa fa-check"></i><b>3</b> Basics of R Programming</a>
 <ul>
@@ -273,19 +278,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">2.3</span> Code chunks<a href="code-chunks.html#code-chunks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="writing-and-executing" class="section level3 hasAnchor" number="2.3.1">
 <h3><span class="header-section-number">2.3.1</span> Writing and executing<a href="code-chunks.html#writing-and-executing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Open RStudio, and create a new R Script file (click the icon near the upper left that looks like a piece of paper with a green plus on it). Type the following lines into the script:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="code-chunks.html#cb3-1" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">4</span>)</span>
-<span id="cb3-2"><a href="code-chunks.html#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(x)</span></code></pre></div>
-<pre><code>## [1] 9.92591</code></pre>
-<p>Execute a command from your script by clicking within the line with your mouse (or click on the line number, or click and drag to select multiple lines at once) and clicking Run (Ctrl + Enter). You can execute lines one at a time or as a group. Try executing the lines above. Compare your output. It’s probably very close but not exactly the same! No worries—the first line creates a random normal distribution.</p>
-</div>
-<div id="commenting-with" class="section level3 hasAnchor" number="2.3.2">
-<h3><span class="header-section-number">2.3.2</span> Commenting with #<a href="code-chunks.html#commenting-with" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>It’s important to add comments throughout your script. These can function as section headers, or as notes to your future self/colleagues on what you were attempting to do. R treats anything after the <code>#</code> sign as a comment and ignores it when executing commands. For instance:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="code-chunks.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Practice executing commands    </span></span>
-<span id="cb5-2"><a href="code-chunks.html#cb5-2" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">4</span>)  <span class="co"># create a new object, x</span></span>
-<span id="cb5-3"><a href="code-chunks.html#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(x)                                 <span class="co"># calculate the mean of it</span></span></code></pre></div>
-<pre><code>## [1] 9.940452</code></pre>
 </div>
 </div>
             </section>

@@ -25,7 +25,7 @@
 <meta name="author" content="C. Austin Davis" />
 
 
-<meta name="date" content="2022-08-26" />
+<meta name="date" content="2022-09-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="r-packages.html"/>
-<link rel="next" href="getting-help-with-r.html"/>
+<link rel="next" href="help.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -152,11 +152,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2" data-path="getting-started-with-r-and-rstudio.html"><a href="getting-started-with-r-and-rstudio.html"><i class="fa fa-check"></i><b>2</b> Getting Started with R and RStudio</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="installing-the-software.html"><a href="installing-the-software.html"><i class="fa fa-check"></i><b>2.1</b> Installing the software</a></li>
-<li class="chapter" data-level="2.2" data-path="the-rstudio-interface.html"><a href="the-rstudio-interface.html"><i class="fa fa-check"></i><b>2.2</b> The RStudio Interface</a></li>
-<li class="chapter" data-level="2.3" data-path="code-chunks.html"><a href="code-chunks.html"><i class="fa fa-check"></i><b>2.3</b> Code chunks</a>
+<li class="chapter" data-level="2.2" data-path="the-rstudio-interface.html"><a href="the-rstudio-interface.html"><i class="fa fa-check"></i><b>2.2</b> The RStudio Interface</a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="code-chunks.html"><a href="code-chunks.html#writing-and-executing"><i class="fa fa-check"></i><b>2.3.1</b> Writing and executing</a></li>
-<li class="chapter" data-level="2.3.2" data-path="code-chunks.html"><a href="code-chunks.html#commenting-with"><i class="fa fa-check"></i><b>2.3.2</b> Commenting with #</a></li>
+<li class="chapter" data-level="2.2.1" data-path="the-rstudio-interface.html"><a href="the-rstudio-interface.html#learning-and-experimenting-in-the-console"><i class="fa fa-check"></i><b>2.2.1</b> Learning and experimenting in the console</a></li>
+<li class="chapter" data-level="2.2.2" data-path="the-rstudio-interface.html"><a href="the-rstudio-interface.html#writing-r-scripts-in-the-source-pane"><i class="fa fa-check"></i><b>2.2.2</b> Writing R scripts in the source pane</a></li>
+<li class="chapter" data-level="2.2.3" data-path="the-rstudio-interface.html"><a href="the-rstudio-interface.html#the-enviroment-pane"><i class="fa fa-check"></i><b>2.2.3</b> The enviroment pane</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="scripts.html"><a href="scripts.html"><i class="fa fa-check"></i><b>2.3</b> Writing R scripts</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="scripts.html"><a href="scripts.html#commenting-with"><i class="fa fa-check"></i><b>2.3.1</b> Commenting with #</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="r-packages.html"><a href="r-packages.html"><i class="fa fa-check"></i><b>2.4</b> R Packages</a>
 <ul>
@@ -164,7 +168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.4.2" data-path="r-packages.html"><a href="r-packages.html#loading-packages-for-use"><i class="fa fa-check"></i><b>2.4.2</b> Loading packages for use</a></li>
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="setting-a-directory.html"><a href="setting-a-directory.html"><i class="fa fa-check"></i><b>2.5</b> Setting a directory</a></li>
-<li class="chapter" data-level="2.6" data-path="getting-help-with-r.html"><a href="getting-help-with-r.html"><i class="fa fa-check"></i><b>2.6</b> Getting help with R</a></li>
+<li class="chapter" data-level="2.6" data-path="help.html"><a href="help.html"><i class="fa fa-check"></i><b>2.6</b> Getting help with R</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="basics-of-r-programming.html"><a href="basics-of-r-programming.html"><i class="fa fa-check"></i><b>3</b> Basics of R Programming</a>
 <ul>
@@ -292,13 +296,16 @@ FIGURE 2.2: Finding your directory’s path
 ## [10] &quot;03-WorkingData.Rmd&quot;    &quot;04-Descriptives.Rmd&quot;   &quot;05-Tabulation.Rmd&quot;    
 ## [13] &quot;06-Regression.Rmd&quot;     &quot;07-DataMunge.Rmd&quot;      &quot;08-Visualization.Rmd&quot; 
 ## [16] &quot;apps&quot;                  &quot;biopics.xls&quot;           &quot;book.bib&quot;             
-## [19] &quot;css&quot;                   &quot;DCPS testing.RData&quot;    &quot;deploy_github&quot;        
-## [22] &quot;docs&quot;                  &quot;gphexport.jpg&quot;         &quot;index.Rmd&quot;            
-## [25] &quot;krantz.cls&quot;            &quot;LICENSE&quot;               &quot;Makefile&quot;             
-## [28] &quot;now.json&quot;              &quot;packages.bib&quot;          &quot;preamble.tex&quot;         
-## [31] &quot;README.md&quot;             &quot;rstudiowindow.jpg&quot;     &quot;settingwd.jpg&quot;        
-## [34] &quot;SurvivR.log&quot;           &quot;SurvivR.Rmd&quot;           &quot;SurvivR.tex&quot;          
-## [37] &quot;SurvivR_files&quot;         &quot;toc.css&quot;</code></pre>
+## [19] &quot;css&quot;                   &quot;dc_weather_2018.csv&quot;   &quot;DCPS testing.RData&quot;   
+## [22] &quot;dcps.csv&quot;              &quot;dcps.rdata&quot;            &quot;deploy_github&quot;        
+## [25] &quot;docs&quot;                  &quot;film.csv&quot;              &quot;film.rdata&quot;           
+## [28] &quot;gphexport.jpg&quot;         &quot;index.Rmd&quot;             &quot;krantz.cls&quot;           
+## [31] &quot;LICENSE&quot;               &quot;Makefile&quot;              &quot;now.json&quot;             
+## [34] &quot;packages.bib&quot;          &quot;preamble.tex&quot;          &quot;README.md&quot;            
+## [37] &quot;rstudiowindow.jpg&quot;     &quot;sampledata.rdata&quot;      &quot;settingwd.jpg&quot;        
+## [40] &quot;spssData.sav&quot;          &quot;stataData.dta&quot;         &quot;SurvivR.log&quot;          
+## [43] &quot;SurvivR.Rmd&quot;           &quot;SurvivR.tex&quot;           &quot;SurvivR_files&quot;        
+## [46] &quot;toc.css&quot;</code></pre>
 <p>Note that my list includes the two companion data sets to this guide. If you don’t see them after you run <code>list.files()</code>, confirm that you downloaded the data to your computer and move them to your project folder.</p>
 </div>
             </section>
@@ -307,7 +314,7 @@ FIGURE 2.2: Finding your directory’s path
         </div>
       </div>
 <a href="r-packages.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="getting-help-with-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="help.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
