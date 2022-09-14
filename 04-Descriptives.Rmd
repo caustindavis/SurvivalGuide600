@@ -2,20 +2,16 @@
 
 How do you summarize numeric data (continuous or discrete) and present your findings? Here we cover how to analyze data over a single numeric variable, both in isolation (e.g. basic summary statistics) and across discrete categories of another variable (e.g. group mean comparison).
 
-Note that you will need the `dcps` data (`DCPS testing.RData`) to replicate the examples in this chapter.
+You will need the `dcps` data (`DCPS testing.RData`) and the `tidyverse` package to replicate the examples in this chapter. See Section \@ref(import) for a reminder on how to import the data and Section \@ref(packages) for installing and loading packages.
+``` {r chapterload, echo=F, message=F}
+library(tidyverse)
+load('docs/data/DCPS testing.RData')
+```
 
 ## Describing one variable
 
 ### Summary statistics
 A useful first step in analyzing the distribution of scores on a single numeric variable is to calculate the relevant summary statistics. Use the `summary()` function for a quick, general overview. This returns the minimum, mean, and maximum scores, as well as the score at 1st, 2nd (median), and 3rd quartiles.
-
-```{r summary, eval = TRUE}
-  load('DCPS testing.RData')
-
-  summary(dcps)  # for every variable in the data frame
-
-  summary(dcps$ProfLang) # for a specific variable
-```
 
 For specific inquiries, use the `summarize()` function and customize your report. For example:
 

@@ -92,7 +92,7 @@ The first time you save an R Script, you will be prompted to select a destinatio
 
 As we will see in Section \@ref(setwd), there is a R command that allows us to specify which directory stores source data or other relevant files independent of the location of your R Script file.
 
-## R Packages
+## R Packages {#packages}
 
 R's advanced functionality comes from the use of packages---user-defined programs (like apps on a phone)---that enable it to carry out particular tasks. We rely largely on a suite of packages called the `tidyverse`.
 

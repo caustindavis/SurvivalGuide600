@@ -2,14 +2,19 @@
 
 Very few data sets come "ready made" for analysis. Even in our introductory course, there are times when you will need to limit your analysis to certain observations, recode a variable, and more. This chapter covers a few basics of data "munging."
 
-Note that you will need the `film` (`"biopics.xls"`) and `dcps` (`"DCPS testing.RData"`) data sets to replicate the commands.
+Note that you will need the `film` (`"biopics.xls"`) and `dcps` (`"DCPS testing.RData"`) data sets and `tidyverse` package to replicate the commands.  See Section \@ref(import) for a reminder on how to import the data and Section \@ref(packages) for installing and loading packages.
+``` {r chapterload, echo=F, message=F}
+library(tidyverse)
+library(readxl)
+film <- read_excel('docs/data/biopics.xls')
+load('docs/data/DCPS testing.RData')
+```
 
 ## Filter/subset data
 It is often necessary to limit your analysis to some subset of cases. Use the `filter()` command to specify the criteria by which to select cases.
 
 ```{r filter,eval=TRUE}
-  film =
-    film %>%
+  film_fem <- film %>%
     filter(SubjectSex == 'Female') # criteria for keeping cases
 
   head(film)
@@ -22,8 +27,7 @@ The conditions inside `filter()` identify the cases, or rows, to keep (i.e. you'
 A dataframe with loads of variables can be unwieldy. Use the `select()` function to isolate the variables you need for your analysis.
 
 ```{r select,eval=TRUE}
-  Study1 =
-    film %>%
+  Study1 <- film %>%
     select(Title,Release,SubjectSex)
 
   head(Study1)
@@ -33,8 +37,7 @@ A dataframe with loads of variables can be unwieldy. Use the `select()` function
 The `mutate()` function creates new variables (or columns) in a data frame. By assigning the same object name to the result, the new variables become part of the object.
 
 ```{r mutate,eval=TRUE}
-  dcps =
-    dcps %>%
+  dcps <- dcps %>%
     mutate(
       LastEdit = '2021',  # character variable with same value in each
       ProfLangProp = ProfLang/100, # convert to proportion
@@ -46,8 +49,7 @@ The `mutate()` function creates new variables (or columns) in a data frame. By a
 In addition to transformations that apply the same function to every case, you can create variables that treat cases on an individual basis. Consider the `if_else()` option. This will specify a logical test to apply to each case, and specify replacement values for those cases that evaluate as true and those cases that evaluate as false. The syntax is: `if_else(criteria,value.if.true,value.if.false)`.
 
 ```{r ifelse,eval=TRUE}
-  dcps =
-    dcps %>%
+  dcps <- dcps %>%
     mutate(
       AbvMedMath = if_else(
         ProfMath > median(ProfMath), # condition to evaluate

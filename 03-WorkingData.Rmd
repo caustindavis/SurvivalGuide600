@@ -4,8 +4,8 @@ Typically, a dataset will take the form of a data frame (or a tibble) where each
 
 Note that you will need access to the `DCPS testing.RData` and `biopics.xls` data sets to follow along in this chapter.
 
-## Importing data
-One of the biggest challenges for first-time `R` users is importing a dataset. Though the process is similar, the specific functions for loading data depend on the format of your data. Here we cover how to import the most common types of data files. 
+## Importing data {#import}
+One of the biggest challenges for first-time `R` users is importing a dataset. Though the process is similar, the specific functions for loading data depend on the format of your data. Here we cover how to import the most common types of data files.
 
 ### R data (.rdata)
 The file extension for a data frame saved in `R` is `.RData`. An object can be opened using the `load('filename')` command. Test this out by loading the `DCPS testing.RData` data.
@@ -19,7 +19,7 @@ Note that this works only if the dataset is saved in the working directory. If n
 ### Delimited (.csv) files
 Often the datasets you work with will not be in `.rdata` format, or it will be more convenient to store them in another format so that you can create or work with them using other software. The simplest option is to work with Comma-Separated Values (.csv) files. To import data from a `.csv` file, use the `read_csv('filename')` function defined within `tidyverse`.
 
-```{r csvdata}
+```{r csvdata, message=FALSE}
   library(tidyverse)
   dc_wthr_18 <- read_csv('dc_weather_2018.csv')
 ```

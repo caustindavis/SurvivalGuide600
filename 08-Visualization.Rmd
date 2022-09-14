@@ -1,94 +1,132 @@
-# Basic visualization
+# Visualization with `ggplot()`
 
-Note that you will need the `dcps` data (`"DCPS testing.RData"`) to replicate the commands.
-
-## Graphing in base R
-Data visualization is a notable strength of R, and its native (`base`) capabilities allow you to create high quality, straightforward graphs.
-
-### Describe one variable
-Summarizing briefly what we presented in prior chapters, presenting data on a single variable is primarily a matter of understanding what type of measure you have. Using the `dcps` data: 
-
-```{r basesum1, eval=TRUE, out.width="70%",fig.align='center'}
-# Histogram (numeric X)
-  hist(dcps$NumTested)
-  
-# Boxplot (numeric X)  
-  boxplot(dcps$ProfMath, horizontal = TRUE)
-
-# Bar plot (nominal X)
-  # 1. relative frequency table
-    tab = 
-      dcps %>%
-      count(SchType) %>%
-      mutate(Percent = 100 * n/sum(n))
-    
-  # 2. barplot from table
-    barplot(Percent ~ SchType, data = tab)
+Note that you will need the `dcps` data (`"DCPS testing.RData"`) and the `tidyverse` package to replicate the commands. See Section \@ref(import) for a reminder on how to import the data and Section \@ref(packages) for installing and loading packages.
+``` {r chapterload, echo=F, message=F}
+library(tidyverse)
+load('docs/data/DCPS testing.RData')
 ```
 
-### Visualizing relationships
-For visualizing relationships between variables:
+Data visualization is a notable strength of R, and the `ggplot()` offers a consistent approach to generate a tremendous variety of visualizations. There are 3 primary elements:
 
-```{r basesum2, eval=TRUE, out.width="70%",fig.align='center'}
-# Group comparison (numeric X, nominal Y)
-  boxplot(NumTested ~ SchType, data = dcps)
-  
-# Scatter plot (numeric X, numeric Y)
-  plot(ProfLang ~ SchType, data = dcps)
+- data to be plotted
+- "aesthetics" or connections between properties or values of the data and features of the graph
+- the "geometry" or plot type
 
-# Scatter w/OLS fit (numeric X, numeric Y)
-  # 1. store OLS estimates
-    est = lm(ProfLang ~ ProfMath, data = dcps)
-  # 2. plot  
-    plot(ProfLang ~ ProfMath, data = dcps) # scatter
-    abline(est) # add linear fit
+The basic recipe begins by calling the `ggplot()` function, specifying the data to be plotted, connecting data to features of the graph ("aesthetics"), and selecting a plot type. As with the `tidyverse` syntax, using `ggplot()` often involves connecting a series of instructions. Rather than the pipe operator, `ggplot()` simply uses the plus sign (`+`).
+
+The customization options are endless; the plot type, title, axis labels, scaling, colors, symbols, shapes, and much, much more. Here we will work through a few introductory examples, but, if you'd like to learn more, you may refer to [R Studio's Visualization Cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf) or the [text written by `ggplot()`'s creator](https://ggplot2-book.org/introduction.html).
+
+## Describe one variable
+Let's start with a relatively simple example: producing a histogram of a continuous variable (here, `NumTested` from our `dcps` dataset). We do so with three basic steps.
+
+First, we use a `ggplot()` command that specifies the data using the argument `data` and aesthetics using the `aes()` command. In the example below, the argument `data` is set equal to the object `dcps` which contains the data we would like to plot. The `aes()` argument `x` defines the variable from the data that should appear on the horizontal axis.
+
+The last element is to specify the plot type. To do that, we follow the `ggplot()` command with plus sign (`+`) and add the `geom_histogram()` command.
+
+```{r gghist, eval=TRUE, out.width="70%",fig.align='center',message=FALSE}
+# Histogram (continuous X)
+ggplot(data=dcps,aes(x=NumTested)) +
+  geom_histogram()
+```
+
+By default, `geom_histogram()` expects the variable to be continuous and automatically breaks it into 30 equal-width bins. You can override the default binning procedure by specifying bin widths or a number of bins; more details are available in the help file for `geom_histogram()`. If the variable is categorical rather than continuous, you will need to include an additional argument: `geom_histogram(stat="count")`. Here's an example using the categorical variable `SchType`.
+
+```{r gghist_cat, eval=TRUE, out.width="70%",fig.align='center',message=FALSE,warning=FALSE}
+# Histogram (categorical X)
+ggplot(data=dcps,aes(x=SchType)) +
+  geom_histogram(stat="count")
+```
+
+With simple modifications to the aesthetics and the plot type, we can produce a box plot of another continuous variable `ProfMath`.
+
+```{r ggbox, eval=TRUE, out.width="70%",fig.align='center'}
+# Box plot
+ggplot(data=dcps,aes(x=ProfMath)) +
+  geom_boxplot()
+```
+
+## Visualizing relationships
+Considering relationships between variables with `ggplot()` generally involves adding aesthetics. We might be interested in comparing the same histogram or box plot for different groupings within the data. We can do that easily by specifying the grouping variable as the aesthetic `fill`. For example:
+```{r ggboxbytype, eval=TRUE, out.width="70%",fig.align='center'}
+# Box plot by categorical variable
+ggplot(data=dcps,aes(x=ProfMath,fill=SchType)) +
+  geom_boxplot()
+```
+
+To produce a scatter plot, we need to specify the aesthetic `y`, i.e. name the variable that will appear on the vertical axis, and set the plot type to `geom_point()`.
+```{r ggscatter, eval=TRUE, out.width="70%",fig.align='center'}
+# Scatter plot
+ggplot(data=dcps,aes(x=ProfMath,y=ProfLang)) +
+  geom_point()
+```
+
+We could also visually distinguish different school types in our scatter plot. However, for certain plot types like `geom_point()` and `geom_line()`, we use the aesthetic `colour` rather than `fill` as above.
+
+```{r ggscatter_bytype, eval=TRUE, out.width="70%",fig.align='center'}
+# Scatter plot by categorical variable
+ggplot(data=dcps,aes(x=ProfMath,y=ProfLang,colour=SchType)) +
+  geom_point()
+```
+
+Different plot types can be easily superimposed by adding additional commands. One common example would be adding a univariate linear regression ("best fit" line) to a scatter plot. That requires the plot type `geom_smooth()` which takes two arguments. First, you must specify the "smoothing method", i.e. the mathematical approach to summarizing the relationship between your X and Y variables. For a "best fit" line, use the argument `method='lm'`. Then, R expects a mathematical equation relating X and Y. To get a "best fit" line, use the argument `formula = y ~ x`. Unless you fully understand the standard error calculations of the underlying `stat_smooth()` function, it's best to suppress the plotting of standard errors by including `se=F`.
+
+```{r ggreg, eval=TRUE, out.width="70%",fig.align='center'}
+# Scatter plot with "best fit" line
+ggplot(data=dcps,aes(x=ProfMath,y=ProfLang)) +
+  geom_point() +
+  geom_smooth(method='lm',formula=y~x,se=F)
 ```
 
 ## Professional formatting
-Formatting is what differentiates an exploratory graph from one you would present to others. The options for formatting an R graphic are almost limitless. However, of special importance are the descriptive text (e.g. titles), axis scales, and the graphical parameters (e.g. color and shape of the points).
-
-I suggest the [Quick-R Advanced Graphs page](https://www.statmethods.net/advgraphs/index.html) for more details and for more advanced examples.
+Formatting is what differentiates an exploratory graph from one you would present to others. The customizations available via `ggplot()` are extensive. From color choices to marker shapes to line widths, you have options. Here, we will focus on a few key elements: descriptive text (e.g. titles), axis scales, and legends.
 
 ### Titles and labels
-Within the different plotting functions, you can specify the main title (`main =`), axis labels (e.g. `xlab =`), and more. Choose simple, descriptive labels and titles.
+Within the different plotting functions, you can specify the main title (`ggtitle()`), axis labels (e.g. `xlab()`), and more. As with other `ggplot()` elements, you add these with the plus sign (`+`). Choose simple, descriptive labels and titles.
 
-```{r titles,eval=TRUE, out.width="70%",fig.align='center'}
-  hist(dcps$ProfLang,
-       main = "Language Proficiency, DCPS 2018",
-       xlab = 'Grade-level proficient (% tested)', ylab = 'Frequency')
+```{r ggscatter_lab, eval=TRUE, out.width="70%",fig.align='center'}
+# Scatter plot with title and axis labels
+ggplot(data=dcps,aes(x=ProfMath,y=ProfLang)) +
+  geom_point() +
+  ggtitle("Math and Language Proficiency in DC Public Schools (2018)") +
+  xlab("Grade-level proficient in Math (% tested)") +
+  ylab("Grade-level proficient in Language (% tested)")
 ```
 
 ### Axis options
-Sometimes the axis scales that R chooses don't make sense or fail to communicate effectively. In these cases, we want to format the endpoints, or limits, of each axis scale. You do this using `xlim` and `ylim`, which allow you to specify a custom minimum and maximum value on each axis (e.g. `xlim = c(min,max)`). Note that you must provide both using the appropriate syntax.
+Sometimes the axis scales that R chooses don't make sense or fail to communicate effectively. In these cases, we want to format the endpoints, or limits, of each axis scale. The command `scale_x_continuous()` and `scale_y_continuous()` allow you to customize labeling and limits for each axis. As you might guess, these commands are intended for continuous variables. Parallel commands exist for other types, including `scale_x_discrete()`, `scale_x_date()`, and `scale_x_binned()`. Others support transformations of variables for display, like `scale_x_log10()`. Refer to the `ggplot()` documentation for more details.
 
-```{r axes,eval=TRUE, out.width="70%",fig.align='center'}
-  plot(ProfLang ~ NumTested, data = dcps,
-       xlim = c(0,1500), ylim = c(0,100)) # boundaries on X and Y
+In the example below, the arguments `limits` is used to set the minimum and maximum values displayed on each axis. Note that the limits need to be specified as a vector, e.g. by using the concatenate function `c()`. The argument `breaks` indicates which values are labeled on each axis. This argument also takes a vector. Here, we used the function `seq()` to create a vector of all values from 0 to 100 in increments of 10.
+
+```{r ggscatter_axes, eval=TRUE, out.width="70%",fig.align='center'}
+# Scatter plot with title and axis labels
+ggplot(data=dcps,aes(x=ProfMath,y=ProfLang)) +
+  geom_point() +
+  ggtitle("Math and Language Proficiency in DC Public Schools (2018)") +
+  xlab("Grade-level proficient in Math (% tested)") +
+  ylab("Grade-level proficient in Language (% tested)") +
+  scale_x_continuous(limits = c(0,100),breaks=seq(0,100,10)) +
+  scale_y_continuous(limits = c(0,100),breaks=seq(0,100,10))
 ```
 
-### Graphical parameters
-Basic R graphs are clean and sparse; these are important advantages. However, we may want to spice things up beyond the simple black and white. This is especially true in graphs with multiple components (e.g. a scatter plot with linear fit) where color/shape contrast is important to differentiate the elements. See below examples of changing fill color (`col`), border color (`border`), point shape (`pch`), line type (`lty`), and line width (`lwd`).
+### Legend options
+When using the `colour` or `fill` aesthetics, `ggplot()` will automatically create a legend. You can manipulate the display of that legend using the commands `scale_color_discrete()` or `scale_fill_discrete()`. As you can see below, you can change the legend title with the argument `name` and the labels with the argument `labels`. Note that the `labels` argument also takes a vector, here produced with the concatenate function `c()`.
 
-```{r gparms,eval=TRUE, out.width="70%",fig.align='center'}
-# Histogram (or boxplot)
-  hist(dcps$ProfMath,
-       col = 'deeppink4', # fill color
-       border = 'gray25') # broder color
-
-# Scatter plots with fit
-  plot(ProfMath ~ ProfLang, data = dcps,
-       pch = 24,    # shape of the point
-       col = 'red') # point color
-  
-  abline(lm(ProfMath ~ ProfLang, data = dcps), 
-         col = 'cornflowerblue',
-         lty = 4, # line type (1-6)
-         lwd = 3) # line width (3=triple width)
+```{r ggscatter_legend, eval=TRUE, out.width="70%",fig.align='center'}
+# Scatter plot with title and axis labels
+ggplot(data=dcps,aes(x=ProfMath,y=ProfLang,colour=SchType)) +
+  geom_point() +
+  ggtitle("Math and Language Proficiency in DC Public Schools (2018)") +
+  xlab("Grade-level proficient in Math (% tested)") +
+  ylab("Grade-level proficient in Language (% tested)") +
+  scale_x_continuous(limits = c(0,100),breaks=seq(0,100,10)) +
+  scale_y_continuous(limits = c(0,100),breaks=seq(0,100,10)) +
+  scale_color_discrete(name=NULL,
+                       labels=c("Grades 1-6","Grades 7-8","Grades 9-12"))
 ```
 
 ## Exporting/saving graphs
 Once you have a formatted graph, it's time to export it. Find the `Export` button in the plot window and choose "Save as Image" (left-hand panel of the figure below). This opens the window shown in the right-hand panel. Here you want to select an appropriate format (typically `.jpeg`), name, and size. Size is crucial, and the target is the smallest possible without cutting out text. A size of 450x400 pixels is a pretty safe bet for most of what we do in this course.
 
 ```{r gphsave, echo=FALSE, eval=TRUE, out.width = '85%',fig.align = 'center', fig.cap="Fortmat and export graphs"}
-knitr::include_graphics("C:\\Users\\ahart\\Dropbox\\SIS 600 AH\\SurvivalGuide\\gphexport.jpg")
+knitr::include_graphics("gphexport.jpg")
 ```

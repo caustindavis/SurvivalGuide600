@@ -9,7 +9,7 @@ Objects are created by assigning them a value using the object name, followed by
 ````{r objintro,eval=TRUE}
   1:4               # prints a sequence of integers
      
-  MyObject = 1:4    # assigns the sequence to a new object, myObject
+  MyObject <- 1:4    # assigns the sequence to a new object, myObject
 ````
 
 To report the contents of an object, enter the object name on a line and execute that line.
@@ -33,8 +33,8 @@ For example: the concatenate function `c(item1,item2,...)` combines a series of 
 ```{r funs1,eval=TRUE}
   c(1,2,3,4)   # combine integers
 
-  a = 1:4      # create new objects, a and b         
-  b = 5:7
+  a <- 1:4      # create new objects, a and b         
+  b <- 5:7
   
   c(a,b)       # combine objects
 ```
@@ -44,9 +44,9 @@ The pipe operator `%>%` from the `tidyverse` package strings together a series o
 
 ```{r piping,eval=TRUE,message=F}
   library(tidyverse)
-  a = seq(0,100,2) 
-  b = sum(a)
-  c = sqrt(b)
+  a <- seq(0,100,2) 
+  b <- sum(a)
+  c <- sqrt(b)
   c
      
   sqrt(sum(seq(0,100,2)))

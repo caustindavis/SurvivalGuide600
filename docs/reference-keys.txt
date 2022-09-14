@@ -84,3 +84,10 @@ saving-your-r-script
 setwd
 source
 the-other-panes
+fig:gphsave
+graphing-with-ggplot
+visualization-with-ggplot
+legend-options
+importing_data
+import
+packages

@@ -2,8 +2,12 @@
 
 Nominal data require a different approach. Rather than summary statistics, the relevant information here is the frequency with which each value or category appears in the data. Here we cover how to analyze data for a single nominal variable (e.g. frequency tables and bar charts) and how to evaluate relationships between nominal variables (cross-tabulation).
 
-Note that you will need the `film` data (`biopics.xls`) to replicate the examples in this chapter.
-
+Note that you will need the `film` data (`biopics.xls`) and the `tidyverse` package to replicate the examples in this chapter. See Section \@ref(import) for a reminder on how to import the data and Section \@ref(packages) for installing and loading packages.
+``` {r chapterload, echo=F, message=F}
+library(tidyverse)
+library(readxl)
+film <- read_excel('biopics.xls')
+```
 
 ## Describing one variable
 
@@ -11,10 +15,6 @@ Note that you will need the `film` data (`biopics.xls`) to replicate the example
 The `count()` function in `tidyverse` creates a tibble with each value of the variable and the "count" of observations within. 
 
 ```{r rawtab, eval=TRUE, message=FALSE}
-library(tidyverse) # load tidyverse package for pipe syntax and summary functions
-library(readxl) # load readxl package to import Excel files
-
-film <- read_excel('biopics.xls') # import Excel file as object film
 
 # Frequency table
   Tab =

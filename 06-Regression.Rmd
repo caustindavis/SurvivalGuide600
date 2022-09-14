@@ -2,12 +2,16 @@
 
 Regression is a powerful tool for estimating the relationship between an outcome (or dependent) variable and one or more exposure (or independent) variables. Here we cover how to estimate and present regression models in `R`.
 
-Note that you will need the `dcps` (`"DCPS testing.RData"`) dataset to replicate the output in this chapter.
+Note that you will need the `dcps` (`"DCPS testing.RData"`) data set and the `tidyverse` and `stargazer` packages to replicate the output in this chapter. See Section \@ref(import) for a reminder on how to import the data and Section \@ref(packages) for installing and loading packages.
+``` {r chapterload, echo=F, message=F}
+library(tidyverse)
+load('docs/data/DCPS testing.RData')
+```
 
 ## Correlation
 To calculate the correlation coefficient (`r`) between two numeric variables, use the `cor.test()` function and specify the model as `~ Var1 + Var2`. This structure is unusual in that both variables follow the `~`, and the `+` separates the two.
 
-```{r corchunk, eval=TRUE, results = 'markup'}
+```{r corchunk, eval=TRUE, results = 'markup', message=FALSE}
   cor.test(~ ProfMath + ProfLang, dcps)
 ```
 Perhaps not surprisingly, the results suggest that math and language proficiency are positively and strongly correlated ($r=0.91$). It is unlikely we observe this association by chance alone ($t=22.4$, $p<0.001$).
@@ -53,11 +57,10 @@ With a binary outcome measure, logistic regression is generally more appropriate
 
 ```{r logit, eval=TRUE}
 # create binary measure of "above average math proficiency"
-  dcps =
-    dcps %>%
+  dcps <- dcps %>%
     mutate(AboveAvgMath = if_else(ProfMath > mean(ProfMath),1,0))
 
-  Model3 = 
+  Model3 <-
     glm(
       AboveAvgMath ~ ProfLang + NumTested,  # specify model
       family = 'binomial',  # logistic estimation
