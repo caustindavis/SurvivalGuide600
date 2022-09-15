@@ -6,7 +6,7 @@ library(tidyverse)
 load('docs/data/DCPS testing.RData')
 ```
 
-Data visualization is a notable strength of R, and the `ggplot()` offers a consistent approach to generate a tremendous variety of visualizations. There are 3 primary elements:
+Data visualization is a notable strength of R, and the `ggplot()` function offers a consistent approach to generate a tremendous variety of visualizations. There are 3 primary elements:
 
 - data to be plotted
 - "aesthetics" or connections between properties or values of the data and features of the graph
