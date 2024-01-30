@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.6 Getting help with R | Survival Guide: Conquering R and living through SIS 600</title>
   <meta name="description" content="A beginner’s guide to mastering R/RStudio and SIS 600." />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.6 Getting help with R | Survival Guide: Conquering R and living through SIS 600" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="C. Austin Davis" />
 
 
-<meta name="date" content="2022-09-13" />
+<meta name="date" content="2024-01-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -94,7 +94,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -107,7 +107,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -121,6 +121,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
@@ -195,30 +199,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4.2" data-path="saving-your-work.html"><a href="saving-your-work.html#saving-a-data-frame"><i class="fa fa-check"></i><b>4.4.2</b> Saving a data frame</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>5</b> Descriptive statistics</a>
+<li class="chapter" data-level="5" data-path="describing-continuous-variables.html"><a href="describing-continuous-variables.html"><i class="fa fa-check"></i><b>5</b> Describing continuous variables</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="describing-one-variable.html"><a href="describing-one-variable.html"><i class="fa fa-check"></i><b>5.1</b> Describing one variable</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="describing-one-variable.html"><a href="describing-one-variable.html#summary-statistics"><i class="fa fa-check"></i><b>5.1.1</b> Summary statistics</a></li>
+<li class="chapter" data-level="5.1.1" data-path="describing-one-variable.html"><a href="describing-one-variable.html#contsumstat"><i class="fa fa-check"></i><b>5.1.1</b> Summary statistics</a></li>
 <li class="chapter" data-level="5.1.2" data-path="describing-one-variable.html"><a href="describing-one-variable.html#graphing-the-distribution"><i class="fa fa-check"></i><b>5.1.2</b> Graphing the distribution</a></li>
-<li class="chapter" data-level="5.1.3" data-path="describing-one-variable.html"><a href="describing-one-variable.html#testing-hypotheses"><i class="fa fa-check"></i><b>5.1.3</b> Testing hypotheses</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="omitting-missing-values.html"><a href="omitting-missing-values.html"><i class="fa fa-check"></i><b>5.2</b> Omitting missing values</a></li>
 <li class="chapter" data-level="5.3" data-path="group-comparisons.html"><a href="group-comparisons.html"><i class="fa fa-check"></i><b>5.3</b> Group comparisons</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="group-comparisons.html"><a href="group-comparisons.html#summary-statistics-by-group"><i class="fa fa-check"></i><b>5.3.1</b> Summary statistics by group</a></li>
+<li class="chapter" data-level="5.3.1" data-path="group-comparisons.html"><a href="group-comparisons.html#contsumstatgroup"><i class="fa fa-check"></i><b>5.3.1</b> Summary statistics by group</a></li>
 <li class="chapter" data-level="5.3.2" data-path="group-comparisons.html"><a href="group-comparisons.html#visualize-group-differences"><i class="fa fa-check"></i><b>5.3.2</b> Visualize group differences</a></li>
-<li class="chapter" data-level="5.3.3" data-path="group-comparisons.html"><a href="group-comparisons.html#testing-hypotheses-1"><i class="fa fa-check"></i><b>5.3.3</b> Testing hypotheses</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="frequency-and-cross-tabulation.html"><a href="frequency-and-cross-tabulation.html"><i class="fa fa-check"></i><b>6</b> Frequency and cross tabulation</a>
+<li class="chapter" data-level="6" data-path="describing-categorical-variables.html"><a href="describing-categorical-variables.html"><i class="fa fa-check"></i><b>6</b> Describing categorical variables</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="describing-one-variable-1.html"><a href="describing-one-variable-1.html"><i class="fa fa-check"></i><b>6.1</b> Describing one variable</a>
-<ul>
-<li class="chapter" data-level="6.1.1" data-path="describing-one-variable-1.html"><a href="describing-one-variable-1.html#frequency-tables"><i class="fa fa-check"></i><b>6.1.1</b> Frequency tables</a></li>
-<li class="chapter" data-level="6.1.2" data-path="describing-one-variable-1.html"><a href="describing-one-variable-1.html#bar-charts"><i class="fa fa-check"></i><b>6.1.2</b> Bar charts</a></li>
-</ul></li>
+<li class="chapter" data-level="6.1" data-path="tab.html"><a href="tab.html"><i class="fa fa-check"></i><b>6.1</b> Describing one variable</a></li>
 <li class="chapter" data-level="6.2" data-path="cross-tabulation.html"><a href="cross-tabulation.html"><i class="fa fa-check"></i><b>6.2</b> Cross-tabulation</a></li>
+<li class="chapter" data-level="6.3" data-path="means-of-binary-variables.html"><a href="means-of-binary-variables.html"><i class="fa fa-check"></i><b>6.3</b> Means of binary variables</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="regression-analysis.html"><a href="regression-analysis.html"><i class="fa fa-check"></i><b>7</b> Regression analysis</a>
 <ul>
@@ -232,17 +231,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="8.1" data-path="filtersubset-data.html"><a href="filtersubset-data.html"><i class="fa fa-check"></i><b>8.1</b> Filter/subset data</a></li>
 <li class="chapter" data-level="8.2" data-path="selecting-your-variables.html"><a href="selecting-your-variables.html"><i class="fa fa-check"></i><b>8.2</b> Selecting your variables</a></li>
-<li class="chapter" data-level="8.3" data-path="create-new-variables.html"><a href="create-new-variables.html"><i class="fa fa-check"></i><b>8.3</b> Create new variables</a></li>
+<li class="chapter" data-level="8.3" data-path="mutate.html"><a href="mutate.html"><i class="fa fa-check"></i><b>8.3</b> Create new variables</a></li>
 <li class="chapter" data-level="8.4" data-path="appending-and-merging-data.html"><a href="appending-and-merging-data.html"><i class="fa fa-check"></i><b>8.4</b> Appending and merging data</a>
 <ul>
-<li class="chapter" data-level="8.4.1" data-path="appending-and-merging-data.html"><a href="appending-and-merging-data.html#appending-new-cases"><i class="fa fa-check"></i><b>8.4.1</b> Appending new cases</a></li>
+<li class="chapter" data-level="8.4.1" data-path="appending-and-merging-data.html"><a href="appending-and-merging-data.html#appending-new-observations"><i class="fa fa-check"></i><b>8.4.1</b> Appending new observations</a></li>
 <li class="chapter" data-level="8.4.2" data-path="appending-and-merging-data.html"><a href="appending-and-merging-data.html#merging"><i class="fa fa-check"></i><b>8.4.2</b> Merging</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="visualization-with-ggplot.html"><a href="visualization-with-ggplot.html"><i class="fa fa-check"></i><b>9</b> Visualization with <code>ggplot()</code></a>
+<li class="chapter" data-level="9" data-path="ggplot.html"><a href="ggplot.html"><i class="fa fa-check"></i><b>9</b> Visualization with <code>ggplot()</code></a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="describe-one-variable.html"><a href="describe-one-variable.html"><i class="fa fa-check"></i><b>9.1</b> Describe one variable</a></li>
-<li class="chapter" data-level="9.2" data-path="visualizing-relationships.html"><a href="visualizing-relationships.html"><i class="fa fa-check"></i><b>9.2</b> Visualizing relationships</a></li>
+<li class="chapter" data-level="9.1" data-path="ggplothist.html"><a href="ggplothist.html"><i class="fa fa-check"></i><b>9.1</b> Describe one variable</a></li>
+<li class="chapter" data-level="9.2" data-path="ggplotrelate.html"><a href="ggplotrelate.html"><i class="fa fa-check"></i><b>9.2</b> Visualizing relationships</a></li>
 <li class="chapter" data-level="9.3" data-path="professional-formatting.html"><a href="professional-formatting.html"><i class="fa fa-check"></i><b>9.3</b> Professional formatting</a>
 <ul>
 <li class="chapter" data-level="9.3.1" data-path="professional-formatting.html"><a href="professional-formatting.html#titles-and-labels"><i class="fa fa-check"></i><b>9.3.1</b> Titles and labels</a></li>
@@ -274,9 +273,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="help" class="section level2 hasAnchor" number="2.6">
 <h2><span class="header-section-number">2.6</span> Getting help with R<a href="help.html#help" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Documentation within R is sometimes helpful, sometimes less so. To see the help file for a given command, enter <code>help(command)</code>, or (equivalently) <code>?command</code>. These will bring up a tutorial with a basic description, usage, arguments, syntax, and other notes about the command. For example, to get help with setting a working directory:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="help.html#cb15-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">help</span>(setwd)</span></code></pre></div>
-<pre><code>## starting httpd help server ... done</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="help.html#cb17-1" aria-hidden="true" tabindex="-1"></a>  ?setwd</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="help.html#cb15-1" tabindex="-1"></a>  <span class="fu">help</span>(setwd)</span>
+<span id="cb15-2"><a href="help.html#cb15-2" tabindex="-1"></a>  ?setwd</span></code></pre></div>
 <p>If that fails, ask the internet by searching Google or <a href="https://rseek.org/" class="uri">https://rseek.org/</a>, a search engine dedicated specifically to results about R.</p>
 
 </div>

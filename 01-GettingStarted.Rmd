@@ -121,7 +121,7 @@ Note that you can also call a specific function without loading the entire packa
 Every data project needs a home. Your working directory is the folder on your computer from which R will load data, images, etc and to which it will save your output. It's important to designate your working directory at the beginning of any script using the `setwd('filepath')` command. For example:
 
 ```{r wd}
-  setwd('C:\\Users\\cadavis\\Documents\\GitHub\\SurvivalGuide600')
+  setwd('/Users/cadavis/Documents/GitHub/SurvivalGuide600/docs')
 ```
 
 This is where you should save the data sets for your project. 
