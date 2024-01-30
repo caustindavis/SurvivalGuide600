@@ -1,6 +1,6 @@
-# Frequency and cross tabulation
+# Describing categorical variables
 
-Nominal data require a different approach. Rather than summary statistics, the relevant information here is the frequency with which each value or category appears in the data. Here we cover how to analyze data for a single nominal variable (e.g. frequency tables and bar charts) and how to evaluate relationships between nominal variables (cross-tabulation).
+Categorical variables require a different approach. Rather than summary statistics, the relevant information here is the frequency with which each value or category appears in the data. Here we cover how to analyze data for a single categorical variable (e.g. frequency tables and bar charts) and how to evaluate relationships between nominal variables (cross-tabulation).
 
 Note that you will need the `film` data (`biopics.xls`) and the `tidyverse` package to replicate the examples in this chapter. See Section \@ref(import) for a reminder on how to import the data and Section \@ref(packages) for installing and loading packages.
 ``` {r chapterload, echo=F, message=F}
@@ -9,79 +9,114 @@ library(readxl)
 film <- read_excel('biopics.xls')
 ```
 
-## Describing one variable
+## Describing one variable {#tab}
 
-### Frequency tables
-The `count()` function in `tidyverse` creates a tibble with each value of the variable and the "count" of observations within. 
+To calculate the frequency of different values of a categorical variable, we adapt the combination of `group_by()` and `summarize()` from Section \@ref(contsumstatgroup). In this example, we count the number of biopics that featured women vs. men, as captured by the variable `SubjectSex`. First, we use the command `group_by(SubjectSex)` to instruct R that all subsequent commands should be evaluated separately for different values of `SubjectSex`. Then we use `summarize()` to create a custom set of summary statistics. Finally, we use the function `n()` to count observations, and we set the result equal to a new variable `Count`.
 
 ```{r rawtab, eval=TRUE, message=FALSE}
 
 # Frequency table
-  Tab =
-    film %>%   # the dataset
-    count(SubjectSex) # the variable to count
+  Tab <- film %>% # create new object 'Tab' starting with object 'film'
+    group_by(SubjectSex) %>% # separately for each value of SubjectSex
+    summarize(Count=n()) # count the number of observations
   
-  Tab
+  Tab # print object 'Tab' to the console
 ```
 
-Calculating the the percent of total cases in each category (relative frequency) requires an extra line of code (`mutate(Percent = 100 * n/sum(n))`).
+Calculating the the fraction of total cases in each category (relative frequency) requires an extra line of code (`mutate(Percent = Count/sum(Count))`). The `mutate()` function creates a new variable (see Section \@ref(mutate) for details). The argument starts with the name of the new variable (`Percent`) and a definition of the new variable. In this case, we set `Percent` equal to the value of `Count` in each row divided by the sum of the values of `Count` across all rows. 
 
 ```{r reltab, eval=TRUE}
 # Relative frequency
-  Tab = 
-    Tab %>%
-    mutate(Percent = 100 * n/sum(n))
+  Tab_pct <- Tab %>% # create new object 'Tab_pct' starting with object 'Tab'
+    mutate(Percent = Count/sum(Count)) # create new variable 'Percent'
+      # and set it equal to the value of Count in each row divided by
+      # the value of Count summed across all rows, i.e. relative frequency
   
-  Tab
+  Tab_pct # print object 'Tab_pct' to the console
 ```
 
-### Bar charts
-Use a basic `barplot()` to display the results saved into these objects (`rawTab`). Note the notation here is `barplot(count ~ category, data)`:
-
-```{r bargraph, eval=TRUE, out.width="70%", fig.align='center'}
-  barplot(n ~ SubjectSex, Tab)
-
-  barplot(Percent ~ SubjectSex, Tab)
-```
-
+Frequency tables can also be visualized as bar charts. See Chapter \@ref(ggplot) for plotting generally and Section \@ref(ggplothist) for examples of a bar chart. Frequency tables and bar charts are two different ways of representing the distribution of a categorical variable.
 
 ## Cross-tabulation
-There is a three-step process for presenting and evaluating the association between two nominal variables. The first step is to create a basic cross-tabulation of the joint frequency using the `count()` function. Here we consider the possibility that the representation of female subjects in biopics (`SubjectSex`) has changed over time (`Period`).
+We can examine the relationship between two categorical variables with a simple extension of the code from Section \@ref(tab). In the example below, we see if the gender of the subject varies (`SubjectSex`) by the period of the film (`Period`). To do so, we simply add the variable `Period` to the `group_by()` function that we used in the previous Section:
 
 ```{r xtabct, eval=TRUE}
-# Raw cross-tabulation
-  xtab =
-    film %>% 
-    count(SubjectSex,Period) %>%  # (OutcomeVar,ExposureVar)
-    na.omit() %>% # drop NA categories
-  # now organize results into a 2-way table
-    pivot_wider(
-      names_from = Period, # MUST be the ExposureVar
-      values_from = n, 
-      values_fill = 0
-    )
 
-  xtab
+# Frequency table
+  XTab <- film %>% # create new object 'XTab' starting with object 'film'
+    group_by(SubjectSex,Period) %>% # separately for every combination of values
+                                    # of 'SubjectSex' and 'Period'
+    summarize(Count=n()) # count the number of observations
+  
+  XTab # print object 'XTab' to the console
 ```
 
-Second, use `chisq.test()` to conduct a $\chi^2$ test of independence. Specify the contingency table created above and add `[-1]` to exclude the first column (category names) from the calculation/
+In this table, the comparison we want to make, whether the gender focus of biopics has changed over time, is somewhat obscured by the change in the total number of biopics over time. We can again adapt code from Section \@ref(tab) to calculate the percentage of films with a subject of each gender separately for each period.
 
-```{r chi2, eval=TRUE}
-  chisq.test(xtab[-1])
+```{r xtabpct, eval=TRUE}
+# Frequency table with percentages by Period
+  XTabPct <- XTab %>% # create new object 'XTabPct' starting with object 'XTab'
+    group_by(Period) %>% # separately for every value of 'Period'
+    mutate(PercentPeriod = Count/sum(Count)) # create new variable
+      # 'PercentPeriod' and set it equal to the value of Count in each row 
+      # divided by the value of Count summed across all rows (within a value of 
+      # 'Period'), i.e. relative frequency by period.
+
+  XTabPct # print object 'XTabPct' to the console
 ```
 
-Based on these results, the given sex of biopic subjects is independent of (ie does not differ systematically across) time period. The relationship is not statistically significant ($\chi^2(2,N=761)=0.40$, $p=0.81$).
+We see that the fraction of biopics with female subjects is relatively constant over time, between 22.5 and 25 percent. The function `tabyl()` in the `janitor` package is a simple but powerful alternative for producing customized frequency tables.
 
-Finally, to present the results of a cross-tabulation, convert the raw frequencies in your table to percentages (within categories of the the exposure variable). Start by calling the raw tabulation from above.
+## Means of binary variables
+In most cases, calculating summary statistics for categorical variables does not yield interpretable results. As an example, imagine we asked 5 Dutch people how they commuted on this morning. Their answers include biking, walking, and the bus. The result is a categorical variable that we could store in several different ways.
 
-```{r xtabrel, eval=TRUE}
-# Relative freq for presentations  
-  xtab %>%
-  # add a row total
-    mutate(Total = rowSums(.[-1])) %>%
-  # convert to percentage
-    mutate_at(-1, ~ round(100 * ./sum(.), digits=1))
+- As text, with the strings `Bike`,`Walk`, and `Bus` indicating the different categories
+- As numbers, with `0` corresponding to biking, `1` to walking, and `2` to the bus
+- As numbers, with `1` corresponding to biking, `2` to walking, and `3` to the bus
+
+We could implement each of these coding schemes in R, creating a new object with 5 observations and 3 variables:
+
+```{r categorical, eval=TRUE}
+commute <- tibble( # create a new object 'commute' defined as a tidyverse tibble
+                  text = c("Bike","Bike","Walk","Walk","Bus"), # variable 'text' stores commute as text
+                  code1 = c(0,0,1,1,2), # variable 'code1' stores commute as numerical codes 0,1,2
+                  code2 = c(1,1,2,2,3)  # variable 'code2' stores commute as numerical codes 1,2,3
+                  )
+
+commute # print object 'commute' to console
 ```
 
-Copy and paste the table into your document. Then format appropriately (e.g. category labels) for final presentation.
+All 3 of these variables contain *exactly the same information*, just stored differently. What if we tried to take the means of each?
 
+
+```{r mean_text, eval=TRUE, warning = FALSE, message = FALSE}
+commute %>%
+  summarize(mean_text = mean(text), # create a new variable 'mean_text' equal to the mean of the variable 'text'
+            mean_code1 = mean(code1), # create a new variable 'mean_code1' equal to the mean of the variable 'code1'
+            mean_code2 = mean(code2)) # create a new variable 'mean_code2' equal to the mean of the variable 'code2'
+```
+
+The results are not terribly useful. Arithmetic operations are not defined for text, so we get a missing value for the mean of `text`. Since the other variables use a numerical coding scheme, it is possible to calculate a mean, but the results of 0.8 and 1.8 have two obvious deficiencies. First, they are different from each other even though the underlying information is exactly the same. Second, they are not comprehensible answers to the question "what modes of commuting are typical for our Dutch survey respondents?"
+
+But let's consider one more way of representing the data: a series of binary categorical variables, one for each mode of commuting. These variables will share a coding scheme, assuming a value of 0 if the commuter did not use that mode and a value of 1 if the commuter did use that mode. Here's what the data would look like under that coding scheme.
+
+```{r cat_binary, eval=TRUE}
+commute_binary <- tibble( # create a new object 'commute_binary' defined as a tidyverse tibble
+                  bike = c(1,1,0,0,0), # variable 'bike' assumes a value of 1 for bike commutes, 0 otherwise
+                  walk = c(0,0,1,1,0), # variable 'walk' assumes a value of 1 for walking commutes, 0 otherwise
+                  bus = c(0,0,0,0,1)  # variable 'bus' assumes a value of 1 for bus commutes, 0 otherwise
+                  )
+
+commute_binary # print object 'commute_binary' to console
+```
+
+This table again stores exactly the same information, but now we can learn something from the means.
+
+```{r mean_binary, eval=TRUE, warning = FALSE, message = FALSE}
+commute_binary %>%
+  summarize(mean_bike = mean(bike), # create a new variable 'mean_bike' equal to the mean of the variable 'bike'
+            mean_walk = mean(walk), # create a new variable 'mean_walk' equal to the mean of the variable 'walk'
+            mean_bus = mean(bus)) # create a new variable 'mean_bus' equal to the mean of the variable 'bus'
+```
+
+These means correspond to the fraction of survey respondents who used each mode of transport; 40 percent biked, 40 percent walked, and 20 percent rode the bus. In general, the mean of an binary variable coded as `(0,1)` will give you the fraction of observations with a value of 1.

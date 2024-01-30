@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6.2 Cross-tabulation | Survival Guide: Conquering R and living through SIS 600</title>
   <meta name="description" content="A beginner’s guide to mastering R/RStudio and SIS 600." />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6.2 Cross-tabulation | Survival Guide: Conquering R and living through SIS 600" />
   <meta property="og:type" content="book" />
@@ -25,15 +25,15 @@
 <meta name="author" content="C. Austin Davis" />
 
 
-<meta name="date" content="2022-09-13" />
+<meta name="date" content="2024-01-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="describing-one-variable-1.html"/>
-<link rel="next" href="regression-analysis.html"/>
+<link rel="prev" href="tab.html"/>
+<link rel="next" href="means-of-binary-variables.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -94,7 +94,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -107,7 +107,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -121,6 +121,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
@@ -195,30 +199,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4.2" data-path="saving-your-work.html"><a href="saving-your-work.html#saving-a-data-frame"><i class="fa fa-check"></i><b>4.4.2</b> Saving a data frame</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>5</b> Descriptive statistics</a>
+<li class="chapter" data-level="5" data-path="describing-continuous-variables.html"><a href="describing-continuous-variables.html"><i class="fa fa-check"></i><b>5</b> Describing continuous variables</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="describing-one-variable.html"><a href="describing-one-variable.html"><i class="fa fa-check"></i><b>5.1</b> Describing one variable</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="describing-one-variable.html"><a href="describing-one-variable.html#summary-statistics"><i class="fa fa-check"></i><b>5.1.1</b> Summary statistics</a></li>
+<li class="chapter" data-level="5.1.1" data-path="describing-one-variable.html"><a href="describing-one-variable.html#contsumstat"><i class="fa fa-check"></i><b>5.1.1</b> Summary statistics</a></li>
 <li class="chapter" data-level="5.1.2" data-path="describing-one-variable.html"><a href="describing-one-variable.html#graphing-the-distribution"><i class="fa fa-check"></i><b>5.1.2</b> Graphing the distribution</a></li>
-<li class="chapter" data-level="5.1.3" data-path="describing-one-variable.html"><a href="describing-one-variable.html#testing-hypotheses"><i class="fa fa-check"></i><b>5.1.3</b> Testing hypotheses</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="omitting-missing-values.html"><a href="omitting-missing-values.html"><i class="fa fa-check"></i><b>5.2</b> Omitting missing values</a></li>
 <li class="chapter" data-level="5.3" data-path="group-comparisons.html"><a href="group-comparisons.html"><i class="fa fa-check"></i><b>5.3</b> Group comparisons</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="group-comparisons.html"><a href="group-comparisons.html#summary-statistics-by-group"><i class="fa fa-check"></i><b>5.3.1</b> Summary statistics by group</a></li>
+<li class="chapter" data-level="5.3.1" data-path="group-comparisons.html"><a href="group-comparisons.html#contsumstatgroup"><i class="fa fa-check"></i><b>5.3.1</b> Summary statistics by group</a></li>
 <li class="chapter" data-level="5.3.2" data-path="group-comparisons.html"><a href="group-comparisons.html#visualize-group-differences"><i class="fa fa-check"></i><b>5.3.2</b> Visualize group differences</a></li>
-<li class="chapter" data-level="5.3.3" data-path="group-comparisons.html"><a href="group-comparisons.html#testing-hypotheses-1"><i class="fa fa-check"></i><b>5.3.3</b> Testing hypotheses</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="frequency-and-cross-tabulation.html"><a href="frequency-and-cross-tabulation.html"><i class="fa fa-check"></i><b>6</b> Frequency and cross tabulation</a>
+<li class="chapter" data-level="6" data-path="describing-categorical-variables.html"><a href="describing-categorical-variables.html"><i class="fa fa-check"></i><b>6</b> Describing categorical variables</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="describing-one-variable-1.html"><a href="describing-one-variable-1.html"><i class="fa fa-check"></i><b>6.1</b> Describing one variable</a>
-<ul>
-<li class="chapter" data-level="6.1.1" data-path="describing-one-variable-1.html"><a href="describing-one-variable-1.html#frequency-tables"><i class="fa fa-check"></i><b>6.1.1</b> Frequency tables</a></li>
-<li class="chapter" data-level="6.1.2" data-path="describing-one-variable-1.html"><a href="describing-one-variable-1.html#bar-charts"><i class="fa fa-check"></i><b>6.1.2</b> Bar charts</a></li>
-</ul></li>
+<li class="chapter" data-level="6.1" data-path="tab.html"><a href="tab.html"><i class="fa fa-check"></i><b>6.1</b> Describing one variable</a></li>
 <li class="chapter" data-level="6.2" data-path="cross-tabulation.html"><a href="cross-tabulation.html"><i class="fa fa-check"></i><b>6.2</b> Cross-tabulation</a></li>
+<li class="chapter" data-level="6.3" data-path="means-of-binary-variables.html"><a href="means-of-binary-variables.html"><i class="fa fa-check"></i><b>6.3</b> Means of binary variables</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="regression-analysis.html"><a href="regression-analysis.html"><i class="fa fa-check"></i><b>7</b> Regression analysis</a>
 <ul>
@@ -232,17 +231,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="8.1" data-path="filtersubset-data.html"><a href="filtersubset-data.html"><i class="fa fa-check"></i><b>8.1</b> Filter/subset data</a></li>
 <li class="chapter" data-level="8.2" data-path="selecting-your-variables.html"><a href="selecting-your-variables.html"><i class="fa fa-check"></i><b>8.2</b> Selecting your variables</a></li>
-<li class="chapter" data-level="8.3" data-path="create-new-variables.html"><a href="create-new-variables.html"><i class="fa fa-check"></i><b>8.3</b> Create new variables</a></li>
+<li class="chapter" data-level="8.3" data-path="mutate.html"><a href="mutate.html"><i class="fa fa-check"></i><b>8.3</b> Create new variables</a></li>
 <li class="chapter" data-level="8.4" data-path="appending-and-merging-data.html"><a href="appending-and-merging-data.html"><i class="fa fa-check"></i><b>8.4</b> Appending and merging data</a>
 <ul>
-<li class="chapter" data-level="8.4.1" data-path="appending-and-merging-data.html"><a href="appending-and-merging-data.html#appending-new-cases"><i class="fa fa-check"></i><b>8.4.1</b> Appending new cases</a></li>
+<li class="chapter" data-level="8.4.1" data-path="appending-and-merging-data.html"><a href="appending-and-merging-data.html#appending-new-observations"><i class="fa fa-check"></i><b>8.4.1</b> Appending new observations</a></li>
 <li class="chapter" data-level="8.4.2" data-path="appending-and-merging-data.html"><a href="appending-and-merging-data.html#merging"><i class="fa fa-check"></i><b>8.4.2</b> Merging</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="visualization-with-ggplot.html"><a href="visualization-with-ggplot.html"><i class="fa fa-check"></i><b>9</b> Visualization with <code>ggplot()</code></a>
+<li class="chapter" data-level="9" data-path="ggplot.html"><a href="ggplot.html"><i class="fa fa-check"></i><b>9</b> Visualization with <code>ggplot()</code></a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="describe-one-variable.html"><a href="describe-one-variable.html"><i class="fa fa-check"></i><b>9.1</b> Describe one variable</a></li>
-<li class="chapter" data-level="9.2" data-path="visualizing-relationships.html"><a href="visualizing-relationships.html"><i class="fa fa-check"></i><b>9.2</b> Visualizing relationships</a></li>
+<li class="chapter" data-level="9.1" data-path="ggplothist.html"><a href="ggplothist.html"><i class="fa fa-check"></i><b>9.1</b> Describe one variable</a></li>
+<li class="chapter" data-level="9.2" data-path="ggplotrelate.html"><a href="ggplotrelate.html"><i class="fa fa-check"></i><b>9.2</b> Visualizing relationships</a></li>
 <li class="chapter" data-level="9.3" data-path="professional-formatting.html"><a href="professional-formatting.html"><i class="fa fa-check"></i><b>9.3</b> Professional formatting</a>
 <ul>
 <li class="chapter" data-level="9.3.1" data-path="professional-formatting.html"><a href="professional-formatting.html#titles-and-labels"><i class="fa fa-check"></i><b>9.3.1</b> Titles and labels</a></li>
@@ -273,56 +272,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="cross-tabulation" class="section level2 hasAnchor" number="6.2">
 <h2><span class="header-section-number">6.2</span> Cross-tabulation<a href="cross-tabulation.html#cross-tabulation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>There is a three-step process for presenting and evaluating the association between two nominal variables. The first step is to create a basic cross-tabulation of the joint frequency using the <code>count()</code> function. Here we consider the possibility that the representation of female subjects in biopics (<code>SubjectSex</code>) has changed over time (<code>Period</code>).</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="cross-tabulation.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Raw cross-tabulation</span></span>
-<span id="cb7-2"><a href="cross-tabulation.html#cb7-2" aria-hidden="true" tabindex="-1"></a>  xtab <span class="ot">=</span></span>
-<span id="cb7-3"><a href="cross-tabulation.html#cb7-3" aria-hidden="true" tabindex="-1"></a>    film <span class="sc">%&gt;%</span> </span>
-<span id="cb7-4"><a href="cross-tabulation.html#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">count</span>(SubjectSex,Period) <span class="sc">%&gt;%</span>  <span class="co"># (OutcomeVar,ExposureVar)</span></span>
-<span id="cb7-5"><a href="cross-tabulation.html#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span> <span class="co"># drop NA categories</span></span>
-<span id="cb7-6"><a href="cross-tabulation.html#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># now organize results into a 2-way table</span></span>
-<span id="cb7-7"><a href="cross-tabulation.html#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(</span>
-<span id="cb7-8"><a href="cross-tabulation.html#cb7-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">names_from =</span> Period, <span class="co"># MUST be the ExposureVar</span></span>
-<span id="cb7-9"><a href="cross-tabulation.html#cb7-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">values_from =</span> n, </span>
-<span id="cb7-10"><a href="cross-tabulation.html#cb7-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">values_fill =</span> <span class="dv">0</span></span>
-<span id="cb7-11"><a href="cross-tabulation.html#cb7-11" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb7-12"><a href="cross-tabulation.html#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-13"><a href="cross-tabulation.html#cb7-13" aria-hidden="true" tabindex="-1"></a>  xtab</span></code></pre></div>
-<pre><code>## # A tibble: 2 × 4
-##   SubjectSex `1915--1965` `1965--1999` `2000--2014`
-##   &lt;chr&gt;             &lt;int&gt;        &lt;int&gt;        &lt;int&gt;
-## 1 Female               44           59           74
-## 2 Male                132          203          249</code></pre>
-<p>Second, use <code>chisq.test()</code> to conduct a <span class="math inline">\(\chi^2\)</span> test of independence. Specify the contingency table created above and add <code>[-1]</code> to exclude the first column (category names) from the calculation/</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="cross-tabulation.html#cb9-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">chisq.test</span>(xtab[<span class="sc">-</span><span class="dv">1</span>])</span></code></pre></div>
-<pre><code>## 
-##  Pearson&#39;s Chi-squared test
-## 
-## data:  xtab[-1]
-## X-squared = 0.40125, df = 2, p-value = 0.8182</code></pre>
-<p>Based on these results, the given sex of biopic subjects is independent of (ie does not differ systematically across) time period. The relationship is not statistically significant (<span class="math inline">\(\chi^2(2,N=761)=0.40\)</span>, <span class="math inline">\(p=0.81\)</span>).</p>
-<p>Finally, to present the results of a cross-tabulation, convert the raw frequencies in your table to percentages (within categories of the the exposure variable). Start by calling the raw tabulation from above.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="cross-tabulation.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Relative freq for presentations  </span></span>
-<span id="cb11-2"><a href="cross-tabulation.html#cb11-2" aria-hidden="true" tabindex="-1"></a>  xtab <span class="sc">%&gt;%</span></span>
-<span id="cb11-3"><a href="cross-tabulation.html#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># add a row total</span></span>
-<span id="cb11-4"><a href="cross-tabulation.html#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">Total =</span> <span class="fu">rowSums</span>(.[<span class="sc">-</span><span class="dv">1</span>])) <span class="sc">%&gt;%</span></span>
-<span id="cb11-5"><a href="cross-tabulation.html#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># convert to percentage</span></span>
-<span id="cb11-6"><a href="cross-tabulation.html#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate_at</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="sc">~</span> <span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> .<span class="sc">/</span><span class="fu">sum</span>(.), <span class="at">digits=</span><span class="dv">1</span>))</span></code></pre></div>
-<pre><code>## # A tibble: 2 × 5
-##   SubjectSex `1915--1965` `1965--1999` `2000--2014` Total
-##   &lt;chr&gt;             &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt;
-## 1 Female               25         22.5         22.9  23.3
-## 2 Male                 75         77.5         77.1  76.7</code></pre>
-<p>Copy and paste the table into your document. Then format appropriately (e.g. category labels) for final presentation.</p>
-
+<p>We can examine the relationship between two categorical variables with a simple extension of the code from Section <a href="tab.html#tab">6.1</a>. In the example below, we see if the gender of the subject varies (<code>SubjectSex</code>) by the period of the film (<code>Period</code>). To do so, we simply add the variable <code>Period</code> to the <code>group_by()</code> function that we used in the previous Section:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="cross-tabulation.html#cb5-1" tabindex="-1"></a><span class="co"># Frequency table</span></span>
+<span id="cb5-2"><a href="cross-tabulation.html#cb5-2" tabindex="-1"></a>  XTab <span class="ot">&lt;-</span> film <span class="sc">%&gt;%</span> <span class="co"># create new object &#39;XTab&#39; starting with object &#39;film&#39;</span></span>
+<span id="cb5-3"><a href="cross-tabulation.html#cb5-3" tabindex="-1"></a>    <span class="fu">group_by</span>(SubjectSex,Period) <span class="sc">%&gt;%</span> <span class="co"># separately for every combination of values</span></span>
+<span id="cb5-4"><a href="cross-tabulation.html#cb5-4" tabindex="-1"></a>                                    <span class="co"># of &#39;SubjectSex&#39; and &#39;Period&#39;</span></span>
+<span id="cb5-5"><a href="cross-tabulation.html#cb5-5" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">Count=</span><span class="fu">n</span>()) <span class="co"># count the number of observations</span></span></code></pre></div>
+<pre><code>## `summarise()` has grouped output by &#39;SubjectSex&#39;. You can override using the
+## `.groups` argument.</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="cross-tabulation.html#cb7-1" tabindex="-1"></a>  XTab <span class="co"># print object &#39;XTab&#39; to the console</span></span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
+## # Groups:   SubjectSex [2]
+##   SubjectSex Period     Count
+##   &lt;chr&gt;      &lt;chr&gt;      &lt;int&gt;
+## 1 Female     1915--1965    44
+## 2 Female     1965--1999    59
+## 3 Female     2000--2014    74
+## 4 Male       1915--1965   132
+## 5 Male       1965--1999   203
+## 6 Male       2000--2014   249</code></pre>
+<p>In this table, the comparison we want to make, whether the gender focus of biopics has changed over time, is somewhat obscured by the change in the total number of biopics over time. We can again adapt code from Section <a href="tab.html#tab">6.1</a> to calculate the percentage of films with a subject of each gender separately for each period.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="cross-tabulation.html#cb9-1" tabindex="-1"></a><span class="co"># Frequency table with percentages by Period</span></span>
+<span id="cb9-2"><a href="cross-tabulation.html#cb9-2" tabindex="-1"></a>  XTabPct <span class="ot">&lt;-</span> XTab <span class="sc">%&gt;%</span> <span class="co"># create new object &#39;XTabPct&#39; starting with object &#39;XTab&#39;</span></span>
+<span id="cb9-3"><a href="cross-tabulation.html#cb9-3" tabindex="-1"></a>    <span class="fu">group_by</span>(Period) <span class="sc">%&gt;%</span> <span class="co"># separately for every value of &#39;Period&#39;</span></span>
+<span id="cb9-4"><a href="cross-tabulation.html#cb9-4" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">PercentPeriod =</span> Count<span class="sc">/</span><span class="fu">sum</span>(Count)) <span class="co"># create new variable</span></span>
+<span id="cb9-5"><a href="cross-tabulation.html#cb9-5" tabindex="-1"></a>      <span class="co"># &#39;PercentPeriod&#39; and set it equal to the value of Count in each row </span></span>
+<span id="cb9-6"><a href="cross-tabulation.html#cb9-6" tabindex="-1"></a>      <span class="co"># divided by the value of Count summed across all rows (within a value of </span></span>
+<span id="cb9-7"><a href="cross-tabulation.html#cb9-7" tabindex="-1"></a>      <span class="co"># &#39;Period&#39;), i.e. relative frequency by period.</span></span>
+<span id="cb9-8"><a href="cross-tabulation.html#cb9-8" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="cross-tabulation.html#cb9-9" tabindex="-1"></a>  XTabPct <span class="co"># print object &#39;XTabPct&#39; to the console</span></span></code></pre></div>
+<pre><code>## # A tibble: 6 × 4
+## # Groups:   Period [3]
+##   SubjectSex Period     Count PercentPeriod
+##   &lt;chr&gt;      &lt;chr&gt;      &lt;int&gt;         &lt;dbl&gt;
+## 1 Female     1915--1965    44         0.25 
+## 2 Female     1965--1999    59         0.225
+## 3 Female     2000--2014    74         0.229
+## 4 Male       1915--1965   132         0.75 
+## 5 Male       1965--1999   203         0.775
+## 6 Male       2000--2014   249         0.771</code></pre>
+<p>We see that the fraction of biopics with female subjects is relatively constant over time, between 22.5 and 25 percent. The function <code>tabyl()</code> in the <code>janitor</code> package is a simple but powerful alternative for producing customized frequency tables.</p>
 </div>
-<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="describing-one-variable-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="regression-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="tab.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="means-of-binary-variables.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -376,20 +373,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

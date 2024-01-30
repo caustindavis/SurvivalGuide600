@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>9.3 Professional formatting | Survival Guide: Conquering R and living through SIS 600</title>
   <meta name="description" content="A beginner’s guide to mastering R/RStudio and SIS 600." />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="9.3 Professional formatting | Survival Guide: Conquering R and living through SIS 600" />
   <meta property="og:type" content="book" />
@@ -25,14 +25,14 @@
 <meta name="author" content="C. Austin Davis" />
 
 
-<meta name="date" content="2022-09-15" />
+<meta name="date" content="2024-01-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="visualizing-relationships.html"/>
+<link rel="prev" href="ggplotrelate.html"/>
 <link rel="next" href="exportingsaving-graphs.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -94,7 +94,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -107,7 +107,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -121,6 +121,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
@@ -201,14 +205,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="5.1.1" data-path="describing-one-variable.html"><a href="describing-one-variable.html#summary-statistics"><i class="fa fa-check"></i><b>5.1.1</b> Summary statistics</a></li>
 <li class="chapter" data-level="5.1.2" data-path="describing-one-variable.html"><a href="describing-one-variable.html#graphing-the-distribution"><i class="fa fa-check"></i><b>5.1.2</b> Graphing the distribution</a></li>
-<li class="chapter" data-level="5.1.3" data-path="describing-one-variable.html"><a href="describing-one-variable.html#testing-hypotheses"><i class="fa fa-check"></i><b>5.1.3</b> Testing hypotheses</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="omitting-missing-values.html"><a href="omitting-missing-values.html"><i class="fa fa-check"></i><b>5.2</b> Omitting missing values</a></li>
 <li class="chapter" data-level="5.3" data-path="group-comparisons.html"><a href="group-comparisons.html"><i class="fa fa-check"></i><b>5.3</b> Group comparisons</a>
 <ul>
 <li class="chapter" data-level="5.3.1" data-path="group-comparisons.html"><a href="group-comparisons.html#summary-statistics-by-group"><i class="fa fa-check"></i><b>5.3.1</b> Summary statistics by group</a></li>
 <li class="chapter" data-level="5.3.2" data-path="group-comparisons.html"><a href="group-comparisons.html#visualize-group-differences"><i class="fa fa-check"></i><b>5.3.2</b> Visualize group differences</a></li>
-<li class="chapter" data-level="5.3.3" data-path="group-comparisons.html"><a href="group-comparisons.html#testing-hypotheses-1"><i class="fa fa-check"></i><b>5.3.3</b> Testing hypotheses</a></li>
+<li class="chapter" data-level="5.3.3" data-path="group-comparisons.html"><a href="group-comparisons.html#testing-hypotheses"><i class="fa fa-check"></i><b>5.3.3</b> Testing hypotheses</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="frequency-and-cross-tabulation.html"><a href="frequency-and-cross-tabulation.html"><i class="fa fa-check"></i><b>6</b> Frequency and cross tabulation</a>
@@ -239,10 +242,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.4.2" data-path="appending-and-merging-data.html"><a href="appending-and-merging-data.html#merging"><i class="fa fa-check"></i><b>8.4.2</b> Merging</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="visualization-with-ggplot.html"><a href="visualization-with-ggplot.html"><i class="fa fa-check"></i><b>9</b> Visualization with <code>ggplot()</code></a>
+<li class="chapter" data-level="9" data-path="ggplot.html"><a href="ggplot.html"><i class="fa fa-check"></i><b>9</b> Visualization with <code>ggplot()</code></a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="describe-one-variable.html"><a href="describe-one-variable.html"><i class="fa fa-check"></i><b>9.1</b> Describe one variable</a></li>
-<li class="chapter" data-level="9.2" data-path="visualizing-relationships.html"><a href="visualizing-relationships.html"><i class="fa fa-check"></i><b>9.2</b> Visualizing relationships</a></li>
+<li class="chapter" data-level="9.1" data-path="ggplothist.html"><a href="ggplothist.html"><i class="fa fa-check"></i><b>9.1</b> Describe one variable</a></li>
+<li class="chapter" data-level="9.2" data-path="ggplotrelate.html"><a href="ggplotrelate.html"><i class="fa fa-check"></i><b>9.2</b> Visualizing relationships</a></li>
 <li class="chapter" data-level="9.3" data-path="professional-formatting.html"><a href="professional-formatting.html"><i class="fa fa-check"></i><b>9.3</b> Professional formatting</a>
 <ul>
 <li class="chapter" data-level="9.3.1" data-path="professional-formatting.html"><a href="professional-formatting.html#titles-and-labels"><i class="fa fa-check"></i><b>9.3.1</b> Titles and labels</a></li>
@@ -277,41 +280,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="titles-and-labels" class="section level3 hasAnchor" number="9.3.1">
 <h3><span class="header-section-number">9.3.1</span> Titles and labels<a href="professional-formatting.html#titles-and-labels" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Within the different plotting functions, you can specify the main title (<code>ggtitle()</code>), axis labels (e.g. <code>xlab()</code>), and more. As with other <code>ggplot()</code> elements, you add these with the plus sign (<code>+</code>). Choose simple, descriptive labels and titles.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="professional-formatting.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot with title and axis labels</span></span>
-<span id="cb8-2"><a href="professional-formatting.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>dcps,<span class="fu">aes</span>(<span class="at">x=</span>ProfMath,<span class="at">y=</span>ProfLang)) <span class="sc">+</span></span>
-<span id="cb8-3"><a href="professional-formatting.html#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb8-4"><a href="professional-formatting.html#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Math and Language Proficiency in DC Public Schools (2018)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb8-5"><a href="professional-formatting.html#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Grade-level proficient in Math (% tested)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb8-6"><a href="professional-formatting.html#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Grade-level proficient in Language (% tested)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="professional-formatting.html#cb8-1" tabindex="-1"></a><span class="co"># Scatter plot with title and axis labels</span></span>
+<span id="cb8-2"><a href="professional-formatting.html#cb8-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>dcps,<span class="fu">aes</span>(<span class="at">x=</span>ProfMath,<span class="at">y=</span>ProfLang)) <span class="sc">+</span></span>
+<span id="cb8-3"><a href="professional-formatting.html#cb8-3" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb8-4"><a href="professional-formatting.html#cb8-4" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Math and Language Proficiency in DC Public Schools (2018)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb8-5"><a href="professional-formatting.html#cb8-5" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Grade-level proficient in Math (% tested)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb8-6"><a href="professional-formatting.html#cb8-6" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Grade-level proficient in Language (% tested)&quot;</span>)</span></code></pre></div>
 <p><img src="SurvivR_files/figure-html/ggscatter_lab-1.svg" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="axis-options" class="section level3 hasAnchor" number="9.3.2">
 <h3><span class="header-section-number">9.3.2</span> Axis options<a href="professional-formatting.html#axis-options" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Sometimes the axis scales that R chooses don’t make sense or fail to communicate effectively. In these cases, we want to format the endpoints, or limits, of each axis scale. The command <code>scale_x_continuous()</code> and <code>scale_y_continuous()</code> allow you to customize labeling and limits for each axis. As you might guess, these commands are intended for continuous variables. Parallel commands exist for other types, including <code>scale_x_discrete()</code>, <code>scale_x_date()</code>, and <code>scale_x_binned()</code>. Others support transformations of variables for display, like <code>scale_x_log10()</code>. Refer to the <code>ggplot()</code> documentation for more details.</p>
 <p>In the example below, the arguments <code>limits</code> is used to set the minimum and maximum values displayed on each axis. Note that the limits need to be specified as a vector, e.g. by using the concatenate function <code>c()</code>. The argument <code>breaks</code> indicates which values are labeled on each axis. This argument also takes a vector. Here, we used the function <code>seq()</code> to create a vector of all values from 0 to 100 in increments of 10.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="professional-formatting.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot with title and axis labels</span></span>
-<span id="cb9-2"><a href="professional-formatting.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>dcps,<span class="fu">aes</span>(<span class="at">x=</span>ProfMath,<span class="at">y=</span>ProfLang)) <span class="sc">+</span></span>
-<span id="cb9-3"><a href="professional-formatting.html#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb9-4"><a href="professional-formatting.html#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Math and Language Proficiency in DC Public Schools (2018)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb9-5"><a href="professional-formatting.html#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Grade-level proficient in Math (% tested)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb9-6"><a href="professional-formatting.html#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Grade-level proficient in Language (% tested)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb9-7"><a href="professional-formatting.html#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">100</span>),<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">100</span>,<span class="dv">10</span>)) <span class="sc">+</span></span>
-<span id="cb9-8"><a href="professional-formatting.html#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">100</span>),<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">100</span>,<span class="dv">10</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="professional-formatting.html#cb9-1" tabindex="-1"></a><span class="co"># Scatter plot with title and axis labels</span></span>
+<span id="cb9-2"><a href="professional-formatting.html#cb9-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>dcps,<span class="fu">aes</span>(<span class="at">x=</span>ProfMath,<span class="at">y=</span>ProfLang)) <span class="sc">+</span></span>
+<span id="cb9-3"><a href="professional-formatting.html#cb9-3" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb9-4"><a href="professional-formatting.html#cb9-4" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Math and Language Proficiency in DC Public Schools (2018)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb9-5"><a href="professional-formatting.html#cb9-5" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Grade-level proficient in Math (% tested)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb9-6"><a href="professional-formatting.html#cb9-6" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Grade-level proficient in Language (% tested)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb9-7"><a href="professional-formatting.html#cb9-7" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">100</span>),<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">100</span>,<span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb9-8"><a href="professional-formatting.html#cb9-8" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">100</span>),<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">100</span>,<span class="dv">10</span>))</span></code></pre></div>
 <p><img src="SurvivR_files/figure-html/ggscatter_axes-1.svg" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="legend-options" class="section level3 hasAnchor" number="9.3.3">
 <h3><span class="header-section-number">9.3.3</span> Legend options<a href="professional-formatting.html#legend-options" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>When using the <code>colour</code> or <code>fill</code> aesthetics, <code>ggplot()</code> will automatically create a legend. You can manipulate the display of that legend using the commands <code>scale_color_discrete()</code> or <code>scale_fill_discrete()</code>. As you can see below, you can change the legend title with the argument <code>name</code> and the labels with the argument <code>labels</code>. Note that the <code>labels</code> argument also takes a vector, here produced with the concatenate function <code>c()</code>.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="professional-formatting.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot with title and axis labels</span></span>
-<span id="cb10-2"><a href="professional-formatting.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>dcps,<span class="fu">aes</span>(<span class="at">x=</span>ProfMath,<span class="at">y=</span>ProfLang,<span class="at">colour=</span>SchType)) <span class="sc">+</span></span>
-<span id="cb10-3"><a href="professional-formatting.html#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb10-4"><a href="professional-formatting.html#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Math and Language Proficiency in DC Public Schools (2018)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb10-5"><a href="professional-formatting.html#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Grade-level proficient in Math (% tested)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb10-6"><a href="professional-formatting.html#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Grade-level proficient in Language (% tested)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb10-7"><a href="professional-formatting.html#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">100</span>),<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">100</span>,<span class="dv">10</span>)) <span class="sc">+</span></span>
-<span id="cb10-8"><a href="professional-formatting.html#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">100</span>),<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">100</span>,<span class="dv">10</span>)) <span class="sc">+</span></span>
-<span id="cb10-9"><a href="professional-formatting.html#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_discrete</span>(<span class="at">name=</span><span class="cn">NULL</span>,</span>
-<span id="cb10-10"><a href="professional-formatting.html#cb10-10" aria-hidden="true" tabindex="-1"></a>                       <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Grades 1-6&quot;</span>,<span class="st">&quot;Grades 7-8&quot;</span>,<span class="st">&quot;Grades 9-12&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="professional-formatting.html#cb10-1" tabindex="-1"></a><span class="co"># Scatter plot with title and axis labels</span></span>
+<span id="cb10-2"><a href="professional-formatting.html#cb10-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>dcps,<span class="fu">aes</span>(<span class="at">x=</span>ProfMath,<span class="at">y=</span>ProfLang,<span class="at">colour=</span>SchType)) <span class="sc">+</span></span>
+<span id="cb10-3"><a href="professional-formatting.html#cb10-3" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb10-4"><a href="professional-formatting.html#cb10-4" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Math and Language Proficiency in DC Public Schools (2018)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb10-5"><a href="professional-formatting.html#cb10-5" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Grade-level proficient in Math (% tested)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb10-6"><a href="professional-formatting.html#cb10-6" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Grade-level proficient in Language (% tested)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb10-7"><a href="professional-formatting.html#cb10-7" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">100</span>),<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">100</span>,<span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb10-8"><a href="professional-formatting.html#cb10-8" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">100</span>),<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">100</span>,<span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb10-9"><a href="professional-formatting.html#cb10-9" tabindex="-1"></a>  <span class="fu">scale_color_discrete</span>(<span class="at">name=</span><span class="cn">NULL</span>,</span>
+<span id="cb10-10"><a href="professional-formatting.html#cb10-10" tabindex="-1"></a>                       <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Grades 1-6&quot;</span>,<span class="st">&quot;Grades 7-8&quot;</span>,<span class="st">&quot;Grades 9-12&quot;</span>))</span></code></pre></div>
 <p><img src="SurvivR_files/figure-html/ggscatter_legend-1.svg" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
@@ -320,7 +323,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="visualizing-relationships.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ggplotrelate.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="exportingsaving-graphs.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

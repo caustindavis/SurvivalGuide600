@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5.1 Describing one variable | Survival Guide: Conquering R and living through SIS 600</title>
   <meta name="description" content="A beginner’s guide to mastering R/RStudio and SIS 600." />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5.1 Describing one variable | Survival Guide: Conquering R and living through SIS 600" />
   <meta property="og:type" content="book" />
@@ -25,14 +25,14 @@
 <meta name="author" content="C. Austin Davis" />
 
 
-<meta name="date" content="2022-09-13" />
+<meta name="date" content="2024-01-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="descriptive-statistics.html"/>
+<link rel="prev" href="describing-continuous-variables.html"/>
 <link rel="next" href="omitting-missing-values.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -94,7 +94,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -107,7 +107,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -121,6 +121,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
@@ -195,23 +199,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4.2" data-path="saving-your-work.html"><a href="saving-your-work.html#saving-a-data-frame"><i class="fa fa-check"></i><b>4.4.2</b> Saving a data frame</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>5</b> Descriptive statistics</a>
+<li class="chapter" data-level="5" data-path="describing-continuous-variables.html"><a href="describing-continuous-variables.html"><i class="fa fa-check"></i><b>5</b> Describing continuous variables</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="describing-one-variable.html"><a href="describing-one-variable.html"><i class="fa fa-check"></i><b>5.1</b> Describing one variable</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="describing-one-variable.html"><a href="describing-one-variable.html#summary-statistics"><i class="fa fa-check"></i><b>5.1.1</b> Summary statistics</a></li>
+<li class="chapter" data-level="5.1.1" data-path="describing-one-variable.html"><a href="describing-one-variable.html#contsumstat"><i class="fa fa-check"></i><b>5.1.1</b> Summary statistics</a></li>
 <li class="chapter" data-level="5.1.2" data-path="describing-one-variable.html"><a href="describing-one-variable.html#graphing-the-distribution"><i class="fa fa-check"></i><b>5.1.2</b> Graphing the distribution</a></li>
-<li class="chapter" data-level="5.1.3" data-path="describing-one-variable.html"><a href="describing-one-variable.html#testing-hypotheses"><i class="fa fa-check"></i><b>5.1.3</b> Testing hypotheses</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="omitting-missing-values.html"><a href="omitting-missing-values.html"><i class="fa fa-check"></i><b>5.2</b> Omitting missing values</a></li>
 <li class="chapter" data-level="5.3" data-path="group-comparisons.html"><a href="group-comparisons.html"><i class="fa fa-check"></i><b>5.3</b> Group comparisons</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="group-comparisons.html"><a href="group-comparisons.html#summary-statistics-by-group"><i class="fa fa-check"></i><b>5.3.1</b> Summary statistics by group</a></li>
+<li class="chapter" data-level="5.3.1" data-path="group-comparisons.html"><a href="group-comparisons.html#contsumstatgroup"><i class="fa fa-check"></i><b>5.3.1</b> Summary statistics by group</a></li>
 <li class="chapter" data-level="5.3.2" data-path="group-comparisons.html"><a href="group-comparisons.html#visualize-group-differences"><i class="fa fa-check"></i><b>5.3.2</b> Visualize group differences</a></li>
-<li class="chapter" data-level="5.3.3" data-path="group-comparisons.html"><a href="group-comparisons.html#testing-hypotheses-1"><i class="fa fa-check"></i><b>5.3.3</b> Testing hypotheses</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="frequency-and-cross-tabulation.html"><a href="frequency-and-cross-tabulation.html"><i class="fa fa-check"></i><b>6</b> Frequency and cross tabulation</a>
+<li class="chapter" data-level="6" data-path="describing-categorical-variables.html"><a href="describing-categorical-variables.html"><i class="fa fa-check"></i><b>6</b> Describing categorical variables</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="describing-one-variable-1.html"><a href="describing-one-variable-1.html"><i class="fa fa-check"></i><b>6.1</b> Describing one variable</a>
 <ul>
@@ -239,10 +241,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.4.2" data-path="appending-and-merging-data.html"><a href="appending-and-merging-data.html#merging"><i class="fa fa-check"></i><b>8.4.2</b> Merging</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="visualization-with-ggplot.html"><a href="visualization-with-ggplot.html"><i class="fa fa-check"></i><b>9</b> Visualization with <code>ggplot()</code></a>
+<li class="chapter" data-level="9" data-path="ggplot.html"><a href="ggplot.html"><i class="fa fa-check"></i><b>9</b> Visualization with <code>ggplot()</code></a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="describe-one-variable.html"><a href="describe-one-variable.html"><i class="fa fa-check"></i><b>9.1</b> Describe one variable</a></li>
-<li class="chapter" data-level="9.2" data-path="visualizing-relationships.html"><a href="visualizing-relationships.html"><i class="fa fa-check"></i><b>9.2</b> Visualizing relationships</a></li>
+<li class="chapter" data-level="9.1" data-path="ggplothist.html"><a href="ggplothist.html"><i class="fa fa-check"></i><b>9.1</b> Describe one variable</a></li>
+<li class="chapter" data-level="9.2" data-path="ggplotrelate.html"><a href="ggplotrelate.html"><i class="fa fa-check"></i><b>9.2</b> Visualizing relationships</a></li>
 <li class="chapter" data-level="9.3" data-path="professional-formatting.html"><a href="professional-formatting.html"><i class="fa fa-check"></i><b>9.3</b> Professional formatting</a>
 <ul>
 <li class="chapter" data-level="9.3.1" data-path="professional-formatting.html"><a href="professional-formatting.html#titles-and-labels"><i class="fa fa-check"></i><b>9.3.1</b> Titles and labels</a></li>
@@ -273,17 +275,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="describing-one-variable" class="section level2 hasAnchor" number="5.1">
 <h2><span class="header-section-number">5.1</span> Describing one variable<a href="describing-one-variable.html#describing-one-variable" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="summary-statistics" class="section level3 hasAnchor" number="5.1.1">
-<h3><span class="header-section-number">5.1.1</span> Summary statistics<a href="describing-one-variable.html#summary-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="contsumstat" class="section level3 hasAnchor" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Summary statistics<a href="describing-one-variable.html#contsumstat" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A useful first step in analyzing the distribution of scores on a single numeric variable is to calculate the relevant summary statistics. Use the <code>summary()</code> function for a quick, general overview. This returns the minimum, mean, and maximum scores, as well as the score at 1st, 2nd (median), and 3rd quartiles.</p>
 <p>For specific inquiries, use the <code>summarize()</code> function and customize your report. For example:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="describing-one-variable.html#cb1-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(tidyverse) <span class="co"># load tidyverse package for pipe syntax and summary functions</span></span>
-<span id="cb1-2"><a href="describing-one-variable.html#cb1-2" aria-hidden="true" tabindex="-1"></a>  dcps <span class="sc">%&gt;%</span>   <span class="co"># start by piping in the dataset</span></span>
-<span id="cb1-3"><a href="describing-one-variable.html#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(</span>
-<span id="cb1-4"><a href="describing-one-variable.html#cb1-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">Avg =</span> <span class="fu">mean</span>(ProfLang), <span class="co"># calculates the mean</span></span>
-<span id="cb1-5"><a href="describing-one-variable.html#cb1-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">StdDev =</span> <span class="fu">sd</span>(ProfLang),   <span class="co"># standard deviation</span></span>
-<span id="cb1-6"><a href="describing-one-variable.html#cb1-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">Range =</span> <span class="fu">max</span>(ProfLang) <span class="sc">-</span> <span class="fu">min</span>(ProfLang) </span>
-<span id="cb1-7"><a href="describing-one-variable.html#cb1-7" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="describing-one-variable.html#cb1-1" tabindex="-1"></a>  <span class="fu">library</span>(tidyverse) <span class="co"># load tidyverse package for pipe syntax and summary functions</span></span>
+<span id="cb1-2"><a href="describing-one-variable.html#cb1-2" tabindex="-1"></a>  dcps <span class="sc">%&gt;%</span>   <span class="co"># start by piping in the dataset</span></span>
+<span id="cb1-3"><a href="describing-one-variable.html#cb1-3" tabindex="-1"></a>    <span class="fu">summarize</span>(</span>
+<span id="cb1-4"><a href="describing-one-variable.html#cb1-4" tabindex="-1"></a>      <span class="at">Avg =</span> <span class="fu">mean</span>(ProfLang), <span class="co"># calculates the mean</span></span>
+<span id="cb1-5"><a href="describing-one-variable.html#cb1-5" tabindex="-1"></a>      <span class="at">StdDev =</span> <span class="fu">sd</span>(ProfLang),   <span class="co"># standard deviation</span></span>
+<span id="cb1-6"><a href="describing-one-variable.html#cb1-6" tabindex="-1"></a>      <span class="at">Range =</span> <span class="fu">max</span>(ProfLang) <span class="sc">-</span> <span class="fu">min</span>(ProfLang) </span>
+<span id="cb1-7"><a href="describing-one-variable.html#cb1-7" tabindex="-1"></a>    )</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 3
 ##     Avg StdDev Range
 ##   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
@@ -291,32 +293,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="graphing-the-distribution" class="section level3 hasAnchor" number="5.1.2">
 <h3><span class="header-section-number">5.1.2</span> Graphing the distribution<a href="describing-one-variable.html#graphing-the-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>We typically use a histogram or box plot to visualize the distribution of scores on a numeric variable.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="describing-one-variable.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Basic histogram</span></span>
-<span id="cb3-2"><a href="describing-one-variable.html#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hist</span>(dcps<span class="sc">$</span>ProfLang)</span></code></pre></div>
-<p><img src="SurvivR_files/figure-html/descPlots-1.svg" width="70%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="describing-one-variable.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Basic boxplot</span></span>
-<span id="cb4-2"><a href="describing-one-variable.html#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">boxplot</span>(dcps<span class="sc">$</span>ProfLang, <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="SurvivR_files/figure-html/descPlots-2.svg" width="70%" style="display: block; margin: auto;" /></p>
-<p>See the chapter on data visualization to learn how to format these graphs appropriately for academic or professional settings.</p>
-</div>
-<div id="testing-hypotheses" class="section level3 hasAnchor" number="5.1.3">
-<h3><span class="header-section-number">5.1.3</span> Testing hypotheses<a href="describing-one-variable.html#testing-hypotheses" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>A one-sample <span class="math inline">\(t-\)</span>test (<code>t.test()</code>) compares the observed mean on a numeric variable to a hypothesized mean. The resulting <span class="math inline">\(p\)</span>-value indicates the probability of observing the mean in your data from a population defined by the null hypothesis (<code>mu =</code>).</p>
-<p>For example, evaluate the argument that at least half of DC public school pupils read at or above grade level (i.e. <span class="math inline">\(H_0:~\mu \geq 50\)</span>).</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="describing-one-variable.html#cb5-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t.test</span>(dcps<span class="sc">$</span>ProfLang, <span class="at">mu =</span> <span class="dv">50</span>, <span class="at">alternative =</span> <span class="st">&#39;less&#39;</span>)</span></code></pre></div>
-<pre><code>## 
-##  One Sample t-test
-## 
-## data:  dcps$ProfLang
-## t = -8.5573, df = 107, p-value = 4.579e-14
-## alternative hypothesis: true mean is less than 50
-## 95 percent confidence interval:
-##      -Inf 33.66336
-## sample estimates:
-## mean of x 
-##  29.73385</code></pre>
-<p>The test results suggest that it is extremely unlikely (<span class="math inline">\(t=-8.6\)</span>, <span class="math inline">\(p&lt;0.001\)</span>) that we would observe these data if the majority of DC public school pupils read at or above grade level. We can reject the null hypothesis.</p>
+<p>In addition to collapsing the data to summary statistics, it can be informative to plot the distribution of a variable, i.e. displaying the probability of observing different values or ranges of values. Chapter <a href="ggplot.html#ggplot">9</a> introduces plotting generally and Section <a href="ggplothist.html#ggplothist">9.1</a> covers techniques for plotting distributions of a single variable.</p>
 </div>
 </div>
             </section>
@@ -324,7 +301,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="descriptive-statistics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="describing-continuous-variables.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="omitting-missing-values.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
@@ -379,20 +356,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

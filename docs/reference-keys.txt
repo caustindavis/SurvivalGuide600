@@ -91,3 +91,17 @@ legend-options
 importing_data
 import
 packages
+ggplot
+hist_bar
+histbar
+ggplothist
+ggplotrelate
+descriptive-statistics-for-continuous-variables
+describing-continuous-variables
+describing-categorical-variables
+contsumstat
+contsumstatgroup
+mutate
+tab
+appending-new-observations
+means-of-binary-variables

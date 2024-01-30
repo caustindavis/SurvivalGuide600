@@ -16,7 +16,7 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: caustindavis/SurvivalGuide600
-output_dir: "C:\\Users\\cadavis\\Documents\\GitHub\\SurvivalGuide600\\docs"
+output_dir: "/Users/cadavis/Documents/GitHub/SurvivalGuide600/docs"
 description: "A beginner's guide to mastering R/RStudio and SIS 600."
 ---
 
@@ -39,7 +39,7 @@ lapply(c('DT', 'citr', 'formatR', 'svglite', 'rticles'), function(pkg) {
 
 knitr::opts_chunk$set(eval = FALSE, echo = TRUE, dev = 'jpeg', dpi = 500, class.source="mychunk",collapse=FALSE)
 
-knitr::opts_knit$set(root.dir = 'C:\\Users\\cadavis\\Documents\\GitHub\\SurvivalGuide600')
+knitr::opts_knit$set(root.dir = '/Users/cadavis/Documents/GitHub/SurvivalGuide600')
 ```
 
 # Preface {-}

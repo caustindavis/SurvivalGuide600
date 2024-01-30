@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>9.1 Describe one variable | Survival Guide: Conquering R and living through SIS 600</title>
   <meta name="description" content="A beginner’s guide to mastering R/RStudio and SIS 600." />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="9.1 Describe one variable | Survival Guide: Conquering R and living through SIS 600" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="C. Austin Davis" />
 
 
-<meta name="date" content="2022-09-15" />
+<meta name="date" content="2024-01-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -94,7 +94,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -107,7 +107,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -121,6 +121,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
@@ -276,19 +280,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Let’s start with a relatively simple example: producing a histogram of a continuous variable (here, <code>NumTested</code> from our <code>dcps</code> dataset). We do so with three basic steps.</p>
 <p>First, we use a <code>ggplot()</code> command that specifies the data using the argument <code>data</code> and aesthetics using the <code>aes()</code> command. In the example below, the argument <code>data</code> is set equal to the object <code>dcps</code> which contains the data we would like to plot. The <code>aes()</code> argument <code>x</code> defines the variable from the data that should appear on the horizontal axis.</p>
 <p>The last element is to specify the plot type. To do that, we follow the <code>ggplot()</code> command with plus sign (<code>+</code>) and add the <code>geom_histogram()</code> command.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="describe-one-variable.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogram (continuous X)</span></span>
-<span id="cb1-2"><a href="describe-one-variable.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>dcps,<span class="fu">aes</span>(<span class="at">x=</span>NumTested)) <span class="sc">+</span></span>
-<span id="cb1-3"><a href="describe-one-variable.html#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="describe-one-variable.html#cb1-1" tabindex="-1"></a><span class="co"># Histogram (continuous X)</span></span>
+<span id="cb1-2"><a href="describe-one-variable.html#cb1-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>dcps,<span class="fu">aes</span>(<span class="at">x=</span>NumTested)) <span class="sc">+</span></span>
+<span id="cb1-3"><a href="describe-one-variable.html#cb1-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div>
 <p><img src="SurvivR_files/figure-html/gghist-1.svg" width="70%" style="display: block; margin: auto;" /></p>
-<p>By default, <code>geom_histogram()</code> expects the variable to be continuous and automatically breaks it into 30 equal-width bins. You can override the default binning procedure by specifying bin widths or a number of bins; more details are available in the help file for <code>geom_histogram()</code>. If the variable is categorical rather than continuous, you will need to include an additional argument: <code>geom_histogram(stat="count")</code>. Here’s an example using the categorical variable <code>SchType</code>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="describe-one-variable.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogram (categorical X)</span></span>
-<span id="cb2-2"><a href="describe-one-variable.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>dcps,<span class="fu">aes</span>(<span class="at">x=</span>SchType)) <span class="sc">+</span></span>
-<span id="cb2-3"><a href="describe-one-variable.html#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">stat=</span><span class="st">&quot;count&quot;</span>)</span></code></pre></div>
+<p>By default, <code>geom_histogram()</code> expects the variable to be continuous and automatically breaks it into 30 equal-width bins. You can override the default binning procedure by specifying bin widths or a number of bins; more details are available in the help file for <code>geom_histogram()</code>. If the variable is categorical rather than continuous, you will need to change the plot type to <code>geom_bar()</code>. Here’s an example using the categorical variable <code>SchType</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="describe-one-variable.html#cb2-1" tabindex="-1"></a><span class="co"># Histogram (categorical X)</span></span>
+<span id="cb2-2"><a href="describe-one-variable.html#cb2-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>dcps,<span class="fu">aes</span>(<span class="at">x=</span>SchType)) <span class="sc">+</span></span>
+<span id="cb2-3"><a href="describe-one-variable.html#cb2-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
 <p><img src="SurvivR_files/figure-html/gghist_cat-1.svg" width="70%" style="display: block; margin: auto;" /></p>
 <p>With simple modifications to the aesthetics and the plot type, we can produce a box plot of another continuous variable <code>ProfMath</code>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="describe-one-variable.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Box plot</span></span>
-<span id="cb3-2"><a href="describe-one-variable.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>dcps,<span class="fu">aes</span>(<span class="at">x=</span>ProfMath)) <span class="sc">+</span></span>
-<span id="cb3-3"><a href="describe-one-variable.html#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="describe-one-variable.html#cb3-1" tabindex="-1"></a><span class="co"># Box plot</span></span>
+<span id="cb3-2"><a href="describe-one-variable.html#cb3-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>dcps,<span class="fu">aes</span>(<span class="at">x=</span>ProfMath)) <span class="sc">+</span></span>
+<span id="cb3-3"><a href="describe-one-variable.html#cb3-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
 <p><img src="SurvivR_files/figure-html/ggbox-1.svg" width="70%" style="display: block; margin: auto;" /></p>
 </div>
             </section>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8.1 Filter/subset data | Survival Guide: Conquering R and living through SIS 600</title>
   <meta name="description" content="A beginner’s guide to mastering R/RStudio and SIS 600." />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8.1 Filter/subset data | Survival Guide: Conquering R and living through SIS 600" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="C. Austin Davis" />
 
 
-<meta name="date" content="2022-09-13" />
+<meta name="date" content="2024-01-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -94,7 +94,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -107,7 +107,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -121,6 +121,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
@@ -195,29 +199,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4.2" data-path="saving-your-work.html"><a href="saving-your-work.html#saving-a-data-frame"><i class="fa fa-check"></i><b>4.4.2</b> Saving a data frame</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>5</b> Descriptive statistics</a>
+<li class="chapter" data-level="5" data-path="describing-continuous-variables.html"><a href="describing-continuous-variables.html"><i class="fa fa-check"></i><b>5</b> Describing continuous variables</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="describing-one-variable.html"><a href="describing-one-variable.html"><i class="fa fa-check"></i><b>5.1</b> Describing one variable</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="describing-one-variable.html"><a href="describing-one-variable.html#summary-statistics"><i class="fa fa-check"></i><b>5.1.1</b> Summary statistics</a></li>
+<li class="chapter" data-level="5.1.1" data-path="describing-one-variable.html"><a href="describing-one-variable.html#contsumstat"><i class="fa fa-check"></i><b>5.1.1</b> Summary statistics</a></li>
 <li class="chapter" data-level="5.1.2" data-path="describing-one-variable.html"><a href="describing-one-variable.html#graphing-the-distribution"><i class="fa fa-check"></i><b>5.1.2</b> Graphing the distribution</a></li>
-<li class="chapter" data-level="5.1.3" data-path="describing-one-variable.html"><a href="describing-one-variable.html#testing-hypotheses"><i class="fa fa-check"></i><b>5.1.3</b> Testing hypotheses</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="omitting-missing-values.html"><a href="omitting-missing-values.html"><i class="fa fa-check"></i><b>5.2</b> Omitting missing values</a></li>
 <li class="chapter" data-level="5.3" data-path="group-comparisons.html"><a href="group-comparisons.html"><i class="fa fa-check"></i><b>5.3</b> Group comparisons</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="group-comparisons.html"><a href="group-comparisons.html#summary-statistics-by-group"><i class="fa fa-check"></i><b>5.3.1</b> Summary statistics by group</a></li>
+<li class="chapter" data-level="5.3.1" data-path="group-comparisons.html"><a href="group-comparisons.html#contsumstatgroup"><i class="fa fa-check"></i><b>5.3.1</b> Summary statistics by group</a></li>
 <li class="chapter" data-level="5.3.2" data-path="group-comparisons.html"><a href="group-comparisons.html#visualize-group-differences"><i class="fa fa-check"></i><b>5.3.2</b> Visualize group differences</a></li>
-<li class="chapter" data-level="5.3.3" data-path="group-comparisons.html"><a href="group-comparisons.html#testing-hypotheses-1"><i class="fa fa-check"></i><b>5.3.3</b> Testing hypotheses</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="frequency-and-cross-tabulation.html"><a href="frequency-and-cross-tabulation.html"><i class="fa fa-check"></i><b>6</b> Frequency and cross tabulation</a>
+<li class="chapter" data-level="6" data-path="describing-categorical-variables.html"><a href="describing-categorical-variables.html"><i class="fa fa-check"></i><b>6</b> Describing categorical variables</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="describing-one-variable-1.html"><a href="describing-one-variable-1.html"><i class="fa fa-check"></i><b>6.1</b> Describing one variable</a>
-<ul>
-<li class="chapter" data-level="6.1.1" data-path="describing-one-variable-1.html"><a href="describing-one-variable-1.html#frequency-tables"><i class="fa fa-check"></i><b>6.1.1</b> Frequency tables</a></li>
-<li class="chapter" data-level="6.1.2" data-path="describing-one-variable-1.html"><a href="describing-one-variable-1.html#bar-charts"><i class="fa fa-check"></i><b>6.1.2</b> Bar charts</a></li>
-</ul></li>
+<li class="chapter" data-level="6.1" data-path="tab.html"><a href="tab.html"><i class="fa fa-check"></i><b>6.1</b> Describing one variable</a></li>
 <li class="chapter" data-level="6.2" data-path="cross-tabulation.html"><a href="cross-tabulation.html"><i class="fa fa-check"></i><b>6.2</b> Cross-tabulation</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="regression-analysis.html"><a href="regression-analysis.html"><i class="fa fa-check"></i><b>7</b> Regression analysis</a>
@@ -232,17 +230,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="8.1" data-path="filtersubset-data.html"><a href="filtersubset-data.html"><i class="fa fa-check"></i><b>8.1</b> Filter/subset data</a></li>
 <li class="chapter" data-level="8.2" data-path="selecting-your-variables.html"><a href="selecting-your-variables.html"><i class="fa fa-check"></i><b>8.2</b> Selecting your variables</a></li>
-<li class="chapter" data-level="8.3" data-path="create-new-variables.html"><a href="create-new-variables.html"><i class="fa fa-check"></i><b>8.3</b> Create new variables</a></li>
+<li class="chapter" data-level="8.3" data-path="mutate.html"><a href="mutate.html"><i class="fa fa-check"></i><b>8.3</b> Create new variables</a></li>
 <li class="chapter" data-level="8.4" data-path="appending-and-merging-data.html"><a href="appending-and-merging-data.html"><i class="fa fa-check"></i><b>8.4</b> Appending and merging data</a>
 <ul>
-<li class="chapter" data-level="8.4.1" data-path="appending-and-merging-data.html"><a href="appending-and-merging-data.html#appending-new-cases"><i class="fa fa-check"></i><b>8.4.1</b> Appending new cases</a></li>
+<li class="chapter" data-level="8.4.1" data-path="appending-and-merging-data.html"><a href="appending-and-merging-data.html#appending-new-observations"><i class="fa fa-check"></i><b>8.4.1</b> Appending new observations</a></li>
 <li class="chapter" data-level="8.4.2" data-path="appending-and-merging-data.html"><a href="appending-and-merging-data.html#merging"><i class="fa fa-check"></i><b>8.4.2</b> Merging</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="visualization-with-ggplot.html"><a href="visualization-with-ggplot.html"><i class="fa fa-check"></i><b>9</b> Visualization with <code>ggplot()</code></a>
+<li class="chapter" data-level="9" data-path="ggplot.html"><a href="ggplot.html"><i class="fa fa-check"></i><b>9</b> Visualization with <code>ggplot()</code></a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="describe-one-variable.html"><a href="describe-one-variable.html"><i class="fa fa-check"></i><b>9.1</b> Describe one variable</a></li>
-<li class="chapter" data-level="9.2" data-path="visualizing-relationships.html"><a href="visualizing-relationships.html"><i class="fa fa-check"></i><b>9.2</b> Visualizing relationships</a></li>
+<li class="chapter" data-level="9.1" data-path="ggplothist.html"><a href="ggplothist.html"><i class="fa fa-check"></i><b>9.1</b> Describe one variable</a></li>
+<li class="chapter" data-level="9.2" data-path="ggplotrelate.html"><a href="ggplotrelate.html"><i class="fa fa-check"></i><b>9.2</b> Visualizing relationships</a></li>
 <li class="chapter" data-level="9.3" data-path="professional-formatting.html"><a href="professional-formatting.html"><i class="fa fa-check"></i><b>9.3</b> Professional formatting</a>
 <ul>
 <li class="chapter" data-level="9.3.1" data-path="professional-formatting.html"><a href="professional-formatting.html#titles-and-labels"><i class="fa fa-check"></i><b>9.3.1</b> Titles and labels</a></li>
@@ -273,23 +271,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="filtersubset-data" class="section level2 hasAnchor" number="8.1">
 <h2><span class="header-section-number">8.1</span> Filter/subset data<a href="filtersubset-data.html#filtersubset-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>It is often necessary to limit your analysis to some subset of cases. Use the <code>filter()</code> command to specify the criteria by which to select cases.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="filtersubset-data.html#cb1-1" aria-hidden="true" tabindex="-1"></a>  film_fem <span class="ot">&lt;-</span> film <span class="sc">%&gt;%</span></span>
-<span id="cb1-2"><a href="filtersubset-data.html#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(SubjectSex <span class="sc">==</span> <span class="st">&#39;Female&#39;</span>) <span class="co"># criteria for keeping cases</span></span>
-<span id="cb1-3"><a href="filtersubset-data.html#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="filtersubset-data.html#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(film)</span></code></pre></div>
-<pre><code>## # A tibble: 6 × 10
-##   Title   Release NumSu…¹ Subje…² Subje…³ Subje…⁴ Perso…⁵ Subje…⁶ LeadA…⁷ Period
-##   &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt; 
-## 1 1987       2014       1 Ricard… Other   White         0 Male    Jean-C… 2000-…
-## 2 Americ…    2014       1 Chris … Milita… NA            0 Male    Bradle… 2000-…
-## 3 Big Ey…    2014       1 Margar… Artist  White         0 Female  Amy Ad… 2000-…
-## 4 Cesar …    2014       1 Cesar … Activi… Hispan…       1 Male    Michae… 2000-…
-## 5 Desert…    2014       1 Afshin… Artist  Middle…       1 Male    Reece … 2000-…
-## 6 Diggin…    2014       1 Adam G… Other   NA            0 Male    Adam G… 2000-…
-## # … with abbreviated variable names ¹​NumSubjects, ²​SubjectName, ³​SubjectType,
-## #   ⁴​SubjectRace, ⁵​PersonOfColor, ⁶​SubjectSex, ⁷​LeadActor</code></pre>
-<p>The conditions inside <code>filter()</code> identify the cases, or rows, to keep (i.e. you’re selecting only those rows that satisfy the given conditions). This can be based on any number of conditions. Note that a double equals sign <code>==</code> is used to check a logical condition.</p>
+<p>It is often necessary to limit your analysis to some subset of observations. Use the <code>filter()</code> command to specify the criteria by which to select observations.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="filtersubset-data.html#cb1-1" tabindex="-1"></a>  film_fem <span class="ot">&lt;-</span> film <span class="sc">%&gt;%</span> <span class="co"># create new object &#39;film_fem&#39; starting with object &#39;film&#39;</span></span>
+<span id="cb1-2"><a href="filtersubset-data.html#cb1-2" tabindex="-1"></a>    <span class="fu">filter</span>(SubjectSex <span class="sc">==</span> <span class="st">&#39;Female&#39;</span>) <span class="co"># Choose observations where the variable</span></span>
+<span id="cb1-3"><a href="filtersubset-data.html#cb1-3" tabindex="-1"></a>      <span class="co"># &#39;SubjectSex&#39; has a value of &#39;Female&#39;</span></span>
+<span id="cb1-4"><a href="filtersubset-data.html#cb1-4" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="filtersubset-data.html#cb1-5" tabindex="-1"></a>  film_fem <span class="co"># Print &#39;film_fem&#39; to the console</span></span></code></pre></div>
+<pre><code>## # A tibble: 177 × 10
+##    Title   Release NumSubjects SubjectName SubjectType SubjectRace PersonOfColor
+##    &lt;chr&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;               &lt;dbl&gt;
+##  1 Big Ey…    2014           1 Margaret K… Artist      White                   0
+##  2 Testam…    2014           1 Vera Britt… Other       NA                      0
+##  3 The Br…    2014           1 Brittany M… Actress     White                   0
+##  4 Wild       2014           1 Cheryl Str… Other       NA                      0
+##  5 Diana      2013           1 Princess D… Other       White                   0
+##  6 Lovela…    2013           1 Linda Love… Actress     White                   0
+##  7 Philom…    2013           1 Philomena … Other       White                   0
+##  8 Saving…    2013           2 P.L. Trave… Author      White                   0
+##  9 Hitchc…    2012           2 Alma Revil… Other       White                   0
+## 10 Hyde P…    2012           2 Margaret S… Other       NA                      0
+## # ℹ 167 more rows
+## # ℹ 3 more variables: SubjectSex &lt;chr&gt;, LeadActor &lt;chr&gt;, Period &lt;chr&gt;</code></pre>
+<p>The conditions inside <code>filter()</code> identify the observations, or rows, to keep (i.e. you’re selecting only those rows that satisfy the given conditions). This can be based on any number of conditions. Note that a double equals sign <code>==</code> is used to <em>check</em> equality while a single equals sign <code>=</code> is used to <em>assign values</em>. Since a <code>filter()</code> function is designed to evaluate criteria for each observation, rather than assign values, we will always use a double equals sign <code>==</code> with <code>filter()</code>.</p>
+<p>Filtering or subsetting by a text-based variable like <code>SubjectSex</code> requires that you enclose the desired value in single or double quotation marks, i.e. <code>SubjectSex == 'Female'</code> or <code>SubjectSex == "Female"</code>, not <code>SubjectSex == Female</code>. Without quotation marks, R will look for an <em>object</em> named <code>Female</code>. However, if you want to filter a numeric variable, you will generally omit the quotation marks. For instance, say we are interested in films releasted in 2014:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="filtersubset-data.html#cb3-1" tabindex="-1"></a>  film_14 <span class="ot">&lt;-</span> film <span class="sc">%&gt;%</span> <span class="co"># create new object &#39;film_14&#39; starting with object &#39;film&#39;</span></span>
+<span id="cb3-2"><a href="filtersubset-data.html#cb3-2" tabindex="-1"></a>    <span class="fu">filter</span>(Release <span class="sc">==</span> <span class="dv">2014</span>) <span class="co"># Choose observations where the variable</span></span>
+<span id="cb3-3"><a href="filtersubset-data.html#cb3-3" tabindex="-1"></a>      <span class="co"># &#39;Release&#39; has a value of 2014</span></span>
+<span id="cb3-4"><a href="filtersubset-data.html#cb3-4" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="filtersubset-data.html#cb3-5" tabindex="-1"></a>  film_14 <span class="co"># Print &#39;film_14&#39; to the console</span></span></code></pre></div>
+<pre><code>## # A tibble: 33 × 10
+##    Title   Release NumSubjects SubjectName SubjectType SubjectRace PersonOfColor
+##    &lt;chr&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;               &lt;dbl&gt;
+##  1 1987       2014           1 Ricardo Tr… Other       White                   0
+##  2 Americ…    2014           1 Chris Kyle  Military    NA                      0
+##  3 Big Ey…    2014           1 Margaret K… Artist      White                   0
+##  4 Cesar …    2014           1 Cesar Chav… Activist    Hispanic (…             1
+##  5 Desert…    2014           1 Afshin Gha… Artist      Middle Eas…             1
+##  6 Diggin…    2014           1 Adam Green  Other       NA                      0
+##  7 Exodus…    2014           1 Moses       Historical  Middle Eas…             0
+##  8 Foxcat…    2014           1 Mark Schul… Athlete     White                   0
+##  9 Get on…    2014           1 James Brown Singer      African Am…             1
+## 10 Grace …    2014           1 Grace Kelly Actress     White                   0
+## # ℹ 23 more rows
+## # ℹ 3 more variables: SubjectSex &lt;chr&gt;, LeadActor &lt;chr&gt;, Period &lt;chr&gt;</code></pre>
 </div>
             </section>
 

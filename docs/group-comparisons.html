@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5.3 Group comparisons | Survival Guide: Conquering R and living through SIS 600</title>
   <meta name="description" content="A beginner’s guide to mastering R/RStudio and SIS 600." />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5.3 Group comparisons | Survival Guide: Conquering R and living through SIS 600" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="C. Austin Davis" />
 
 
-<meta name="date" content="2022-09-13" />
+<meta name="date" content="2024-01-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="omitting-missing-values.html"/>
-<link rel="next" href="frequency-and-cross-tabulation.html"/>
+<link rel="next" href="describing-categorical-variables.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -94,7 +94,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -107,7 +107,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -121,6 +121,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
@@ -195,23 +199,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4.2" data-path="saving-your-work.html"><a href="saving-your-work.html#saving-a-data-frame"><i class="fa fa-check"></i><b>4.4.2</b> Saving a data frame</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>5</b> Descriptive statistics</a>
+<li class="chapter" data-level="5" data-path="describing-continuous-variables.html"><a href="describing-continuous-variables.html"><i class="fa fa-check"></i><b>5</b> Describing continuous variables</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="describing-one-variable.html"><a href="describing-one-variable.html"><i class="fa fa-check"></i><b>5.1</b> Describing one variable</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="describing-one-variable.html"><a href="describing-one-variable.html#summary-statistics"><i class="fa fa-check"></i><b>5.1.1</b> Summary statistics</a></li>
+<li class="chapter" data-level="5.1.1" data-path="describing-one-variable.html"><a href="describing-one-variable.html#contsumstat"><i class="fa fa-check"></i><b>5.1.1</b> Summary statistics</a></li>
 <li class="chapter" data-level="5.1.2" data-path="describing-one-variable.html"><a href="describing-one-variable.html#graphing-the-distribution"><i class="fa fa-check"></i><b>5.1.2</b> Graphing the distribution</a></li>
-<li class="chapter" data-level="5.1.3" data-path="describing-one-variable.html"><a href="describing-one-variable.html#testing-hypotheses"><i class="fa fa-check"></i><b>5.1.3</b> Testing hypotheses</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="omitting-missing-values.html"><a href="omitting-missing-values.html"><i class="fa fa-check"></i><b>5.2</b> Omitting missing values</a></li>
 <li class="chapter" data-level="5.3" data-path="group-comparisons.html"><a href="group-comparisons.html"><i class="fa fa-check"></i><b>5.3</b> Group comparisons</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="group-comparisons.html"><a href="group-comparisons.html#summary-statistics-by-group"><i class="fa fa-check"></i><b>5.3.1</b> Summary statistics by group</a></li>
+<li class="chapter" data-level="5.3.1" data-path="group-comparisons.html"><a href="group-comparisons.html#contsumstatgroup"><i class="fa fa-check"></i><b>5.3.1</b> Summary statistics by group</a></li>
 <li class="chapter" data-level="5.3.2" data-path="group-comparisons.html"><a href="group-comparisons.html#visualize-group-differences"><i class="fa fa-check"></i><b>5.3.2</b> Visualize group differences</a></li>
-<li class="chapter" data-level="5.3.3" data-path="group-comparisons.html"><a href="group-comparisons.html#testing-hypotheses-1"><i class="fa fa-check"></i><b>5.3.3</b> Testing hypotheses</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="frequency-and-cross-tabulation.html"><a href="frequency-and-cross-tabulation.html"><i class="fa fa-check"></i><b>6</b> Frequency and cross tabulation</a>
+<li class="chapter" data-level="6" data-path="describing-categorical-variables.html"><a href="describing-categorical-variables.html"><i class="fa fa-check"></i><b>6</b> Describing categorical variables</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="describing-one-variable-1.html"><a href="describing-one-variable-1.html"><i class="fa fa-check"></i><b>6.1</b> Describing one variable</a>
 <ul>
@@ -239,10 +241,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.4.2" data-path="appending-and-merging-data.html"><a href="appending-and-merging-data.html#merging"><i class="fa fa-check"></i><b>8.4.2</b> Merging</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="visualization-with-ggplot.html"><a href="visualization-with-ggplot.html"><i class="fa fa-check"></i><b>9</b> Visualization with <code>ggplot()</code></a>
+<li class="chapter" data-level="9" data-path="ggplot.html"><a href="ggplot.html"><i class="fa fa-check"></i><b>9</b> Visualization with <code>ggplot()</code></a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="describe-one-variable.html"><a href="describe-one-variable.html"><i class="fa fa-check"></i><b>9.1</b> Describe one variable</a></li>
-<li class="chapter" data-level="9.2" data-path="visualizing-relationships.html"><a href="visualizing-relationships.html"><i class="fa fa-check"></i><b>9.2</b> Visualizing relationships</a></li>
+<li class="chapter" data-level="9.1" data-path="ggplothist.html"><a href="ggplothist.html"><i class="fa fa-check"></i><b>9.1</b> Describe one variable</a></li>
+<li class="chapter" data-level="9.2" data-path="ggplotrelate.html"><a href="ggplotrelate.html"><i class="fa fa-check"></i><b>9.2</b> Visualizing relationships</a></li>
 <li class="chapter" data-level="9.3" data-path="professional-formatting.html"><a href="professional-formatting.html"><i class="fa fa-check"></i><b>9.3</b> Professional formatting</a>
 <ul>
 <li class="chapter" data-level="9.3.1" data-path="professional-formatting.html"><a href="professional-formatting.html#titles-and-labels"><i class="fa fa-check"></i><b>9.3.1</b> Titles and labels</a></li>
@@ -273,56 +275,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="group-comparisons" class="section level2 hasAnchor" number="5.3">
 <h2><span class="header-section-number">5.3</span> Group comparisons<a href="group-comparisons.html#group-comparisons" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="summary-statistics-by-group" class="section level3 hasAnchor" number="5.3.1">
-<h3><span class="header-section-number">5.3.1</span> Summary statistics by group<a href="group-comparisons.html#summary-statistics-by-group" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Comparing summary statistics across different groups or categories of cases requires that you identify the grouping variable (typically <code>group_by()</code>} before calculating the desired summary statistics.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="group-comparisons.html#cb11-1" aria-hidden="true" tabindex="-1"></a>  dcps <span class="sc">%&gt;%</span></span>
-<span id="cb11-2"><a href="group-comparisons.html#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(SchType) <span class="sc">%&gt;%</span>  <span class="co"># identify grouping variable</span></span>
-<span id="cb11-3"><a href="group-comparisons.html#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(</span>
-<span id="cb11-4"><a href="group-comparisons.html#cb11-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">Avg =</span> <span class="fu">mean</span>(ProfMath),  <span class="co"># apply functions to each group</span></span>
-<span id="cb11-5"><a href="group-comparisons.html#cb11-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">StDev =</span> <span class="fu">sd</span>(ProfMath)</span>
-<span id="cb11-6"><a href="group-comparisons.html#cb11-6" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+<div id="contsumstatgroup" class="section level3 hasAnchor" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Summary statistics by group<a href="group-comparisons.html#contsumstatgroup" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Comparing outcomes across groups can reveal important patterns. We conduct such comparisons using the <code>group_by()</code> function, here in combination with <code>summarize()</code>. The <code>group_by()</code> function takes as arguments a comma separated list variables. R will then evaluate all piped commands separately for every combination of values that appear in your listed variables. Here’s an example that calculates the mean and standard deviation of math proficiency (<code>ProfMath</code>) separately for elementary, middle, and high school (<code>SchType</code>).</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="group-comparisons.html#cb7-1" tabindex="-1"></a>  dcps <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="group-comparisons.html#cb7-2" tabindex="-1"></a>    <span class="fu">group_by</span>(SchType) <span class="sc">%&gt;%</span>  <span class="co"># separately for each value of SchType</span></span>
+<span id="cb7-3"><a href="group-comparisons.html#cb7-3" tabindex="-1"></a>    <span class="fu">summarize</span>(</span>
+<span id="cb7-4"><a href="group-comparisons.html#cb7-4" tabindex="-1"></a>      <span class="at">Avg =</span> <span class="fu">mean</span>(ProfMath),  <span class="co"># calculate mean of ProfMath</span></span>
+<span id="cb7-5"><a href="group-comparisons.html#cb7-5" tabindex="-1"></a>      <span class="at">StDev =</span> <span class="fu">sd</span>(ProfMath)   <span class="co"># calculate SD of ProfMath</span></span>
+<span id="cb7-6"><a href="group-comparisons.html#cb7-6" tabindex="-1"></a>    )</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 3
 ##   SchType      Avg StDev
 ##   &lt;fct&gt;      &lt;dbl&gt; &lt;dbl&gt;
 ## 1 Elementary  34.0  23.7
 ## 2 Middle      19.6  17.6
 ## 3 High        12.9  22.5</code></pre>
+<p>Note: the arguments for <code>group_by()</code> should be categorical variables and not continuous variables. Why? What happens when you try using a continuous variable?</p>
 </div>
 <div id="visualize-group-differences" class="section level3 hasAnchor" number="5.3.2">
 <h3><span class="header-section-number">5.3.2</span> Visualize group differences<a href="group-comparisons.html#visualize-group-differences" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>One good way of exploring these relationships graphically is to use a boxplot. Note that the syntax is to identify the outcome before the <code>~</code> and the grouping variable after (<code>boxplot(OutcomeVar ~ GroupVar, Data)</code>):</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="group-comparisons.html#cb13-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">boxplot</span>(ProfMath <span class="sc">~</span> SchType, <span class="at">data =</span> dcps)</span></code></pre></div>
-<p><img src="SurvivR_files/figure-html/groupbox-1.svg" width="70%" style="display: block; margin: auto;" /></p>
-</div>
-<div id="testing-hypotheses-1" class="section level3 hasAnchor" number="5.3.3">
-<h3><span class="header-section-number">5.3.3</span> Testing hypotheses<a href="group-comparisons.html#testing-hypotheses-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>You can test hypotheses about the relationship between a nominal exposure variable (<code>GroupingVar</code>) and a numeric outcome (<code>OutcomeVar</code>) using either the <span class="math inline">\(t-\)</span> or <span class="math inline">\(F-\)</span> test. Use <code>t.test(OutcomeVar ~ GroupVar, Data)</code> to compare the mean outcome across exactly two groups (i.e. when <code>GroupVar</code> is binary). Use <code>aov(OutcomeVar ~ GroupVar, Data)</code> when <code>GroupVar</code> identifies more than two categories. Note that you need to use <code>summary()</code> to view the full <code>aov()</code> estimates.</p>
-<p>Evaluate the argument that large schools (i.e. where more than 200 students took the test) have a significantly different level of math proficiency than small schools.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="group-comparisons.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># t-test (two-group test of equivalence)</span></span>
-<span id="cb14-2"><a href="group-comparisons.html#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t.test</span>(ProfMath <span class="sc">~</span> (NumTested <span class="sc">&gt;</span> <span class="dv">200</span>), <span class="at">data =</span> dcps)</span></code></pre></div>
-<pre><code>## 
-##  Welch Two Sample t-test
-## 
-## data:  ProfMath by NumTested &gt; 200
-## t = -1.1472, df = 47.565, p-value = 0.257
-## alternative hypothesis: true difference in means between group FALSE and group TRUE is not equal to 0
-## 95 percent confidence interval:
-##  -16.669375   4.559737
-## sample estimates:
-## mean in group FALSE  mean in group TRUE 
-##            25.33481            31.38963</code></pre>
-<p>While there is a mean difference in math proficiency (31 vs 25), the difference is not statistically significant (<span class="math inline">\(p=0.257\)</span>).</p>
-<p>Next consider the possibility that math proficiency differs systematically across type of school. Because <code>SchType</code> has more than two values (Elementary, Middle, and High), we use the <span class="math inline">\(F-\)</span>test.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="group-comparisons.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># F-test (multigroup test of equivalence)  </span></span>
-<span id="cb16-2"><a href="group-comparisons.html#cb16-2" aria-hidden="true" tabindex="-1"></a>  ftest <span class="ot">=</span> <span class="fu">aov</span>(ProfMath <span class="sc">~</span> SchType, <span class="at">data =</span> dcps)</span>
-<span id="cb16-3"><a href="group-comparisons.html#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>(ftest) <span class="co"># view the results of the F-test</span></span></code></pre></div>
-<pre><code>##              Df Sum Sq Mean Sq F value   Pr(&gt;F)    
-## SchType       2   8244    4122   8.325 0.000441 ***
-## Residuals   105  51992     495                     
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<p>Here the results indicate a significant difference in math proficiency by type of school (<span class="math inline">\(F_{2,105}=8.35\)</span>, <span class="math inline">\(p&lt;0.001\)</span>).</p>
+<p>Plotting distributions separately for different groups can offer insights into the relationships between variables. Chapter <a href="ggplot.html#ggplot">9</a> introduces plotting generally and Section <a href="ggplotrelate.html#ggplotrelate">9.2</a> covers techniques for visualizing group differences and relationships between variables.</p>
 
 </div>
 </div>
@@ -333,7 +305,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="omitting-missing-values.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="frequency-and-cross-tabulation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="describing-categorical-variables.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -387,20 +359,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
