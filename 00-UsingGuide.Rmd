@@ -5,7 +5,7 @@
 This guide introduces the basics of R for data analysis for students in SIS 600: International Affairs Stats & Methods at American University. While it will not answer all of your questions about `R`, we hope you will find it a useful companion to lecture notes and other class materials throughout the semester.
 
 ## Download the data
-It is important that you follow along with the guide by replicating the code and analysis presented throughout. You will need two datasets to do this. Use the links below to download both. Then save the files to a project folder for this course.
+It is important that you follow along with the guide by replicating the code and analysis presented throughout. You will need three datasets linked below. You may find it convenient to save the files to a project folder for this course.
 
 - *`DCPS testing.RData`* ([download DCPS data here](https://caustindavis.github.io/SurvivalGuide600/data/DCPS%20testing.RData))  
 This data from the DC Public School System records the results of the PARCC (Partnership for Assessment of Readiness for College and Careers) Assessment from 2017`-`2018. This version of the data includes the school name, level, and number of students tested, as well as the percentage of students performing at or above grade level in language and math. You can find more information about the test at the [DC PARCC results page](https://osse.dc.gov/parcc).  
@@ -15,6 +15,8 @@ This is a shortened version of the data behind the story ["'Straight Outta Compt
 
 - *`dc_weather_2018.csv`* ([download weather data here](https://caustindavis.github.io/SurvivalGuide600/data/dc_weather_2018.csv))  
 The National Oceanic and Atmospheric Administration maintains networks of weather monitoring stations around the country, an important input into understanding weather and climate. Collected during 2018 as a part of the Global Historical Climatology Network Daily (GHCND) data, this file contains daily weather information from a station at Washington National Airport. It includes information about temperature and a categorization of weather type, e.g. rain, snow, fog.
+
+*Note*: in some browsers (e.g. Safari), a left click on the link for the weather data above will display this type of file (comma separated values or CSV) rather than downloading it. One easy way to download the file is to right click on the link and then choose "Download linked file," "Download linked file as...," or a similar option.
 
 ## Following along
 Hands on practice is the only way to gain competence in using R for data analysis. To We present code and output throughout the guide so that you have useful examples for reference and, most importantly, for you to practice. When you see a code chunk and output, we want you to follow along by entering the code on your computer and comparing your output to what's given in the guide. Consider a chunk like the one below: 
